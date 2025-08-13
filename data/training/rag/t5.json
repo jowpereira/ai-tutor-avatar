@@ -1,0 +1,9 @@
+{
+  "topicId": "t5",
+  "title": "Prompt Engineering",
+  "documents": [
+    { "id": "t5d1", "text": "Prompts estruturados ajudam modelos a seguir instruções complexas." },
+    { "id": "t5d2", "text": "Few-shot demonstra o formato de entrada e saída ao modelo." },
+    { "id": "t5d3", "text": "Chain-of-Thought incentiva raciocínio passo a passo em problemas difíceis." }
+  ]
+}

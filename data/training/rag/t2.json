@@ -1,0 +1,9 @@
+{
+  "topicId": "t2",
+  "title": "Fundamentos de Redes Neurais",
+  "documents": [
+    { "id": "t2d1", "text": "Redes neurais são compostas por camadas de unidades conectadas com pesos ajustáveis." },
+    { "id": "t2d2", "text": "Funções de ativação comuns: ReLU, Sigmoid, Tanh." },
+    { "id": "t2d3", "text": "Backpropagation calcula gradientes via regra da cadeia para atualizar pesos." }
+  ]
+}

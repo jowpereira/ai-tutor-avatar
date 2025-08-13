@@ -1,0 +1,9 @@
+{
+  "topicId": "t9",
+  "title": "RAG Pipeline",
+  "documents": [
+    { "id": "t9d1", "text": "RAG combina recuperação de documentos e geração condicionada ao contexto." },
+    { "id": "t9d2", "text": "Indexação eficiente exige embeddings vetoriais consistentes." },
+    { "id": "t9d3", "text": "Grounded generation reduz alucinação usando referências explícitas." }
+  ]
+}

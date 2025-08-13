@@ -1,0 +1,9 @@
+{
+  "topicId": "t4",
+  "title": "Transformers Essentials",
+  "documents": [
+    { "id": "t4d1", "text": "Self-Attention calcula pesos de similaridade entre todos os pares de tokens." },
+    { "id": "t4d2", "text": "Positional Encoding injeta informação de ordem usando funções senoidais." },
+    { "id": "t4d3", "text": "Encoder empilha blocos de attention + feed-forward com normalização." }
+  ]
+}

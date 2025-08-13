@@ -1,0 +1,9 @@
+{
+  "topicId": "t10",
+  "title": "Fine-tuning & Adaptação",
+  "documents": [
+    { "id": "t10d1", "text": "Fine-tuning clássico ajusta todos os pesos do modelo base." },
+    { "id": "t10d2", "text": "LoRA injeta matrizes de baixa dimensão treináveis preservando pesos originais." },
+    { "id": "t10d3", "text": "Adapters adicionam camadas leves entre blocos congelados para especialização." }
+  ]
+}

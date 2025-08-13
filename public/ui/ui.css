@@ -1,0 +1,54 @@
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;padding:0;background:#0f1115;color:#e4e7eb;overflow:hidden}
+header{padding:12px 20px;background:#1c2128;display:flex;align-items:center;gap:12px;border-bottom:1px solid #2d333b}
+button{background:#2563eb;color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500}
+button:disabled{background:#334155;cursor:not-allowed}
+button:hover:not(:disabled){background:#1d4ed8}
+#status{font-size:12px;opacity:.8;margin-left:auto}
+.container{height:calc(100vh - 60px);display:flex;flex-direction:column;padding:20px;max-width:900px;margin:0 auto}
+h2{margin:0 0 16px;font-size:20px;font-weight:600}
+#progressWrapper{position:relative;margin-bottom:20px}
+#progressBar{height:12px;background:#1c2128;border-radius:12px;overflow:hidden;border:1px solid #2d333b;box-shadow:inset 0 2px 4px rgba(0,0,0,0.3)}
+#bar{height:100%;width:0;background:linear-gradient(90deg,#2563eb 0%,#3b82f6 50%,#60a5fa 100%);transition:width 0.8s cubic-bezier(0.4,0.0,0.2,1);position:relative}
+#bar::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.2) 50%,transparent 100%);animation:shimmer 2s infinite}
+#percentage{position:absolute;top:-18px;left:4px;font-size:10px;font-weight:600;color:#e4e7eb}
+#layout{flex:1;display:flex;gap:16px;min-height:0}
+#content{flex:2;background:#1c2128;border:1px solid #2d333b;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+#chatPanel{flex:1;display:flex;flex-direction:column;background:#1c2128;border:1px solid #2d333b;border-radius:12px;padding:12px;min-width:280px;max-width:380px}
+#chatPanel h3{margin:0 0 8px;font-size:15px;font-weight:600;color:#93c5fd}
+#chatScroll{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding-right:4px}
+#answers .answer{background:#242e38;padding:8px 10px;border-radius:8px;font-size:13px;line-height:1.4;position:relative}
+#answers .answer .meta{font-size:10px;opacity:0.6;margin-bottom:4px}
+#answers .answer.broadcast{border-left:3px solid #6366f1}
+#answers .answer.chat_now{border-left:3px solid #10b981}
+#answers .answer.pause{border-left:3px solid #f59e0b}
+#answers .answer.end_topic{border-left:3px solid #ec4899}
+#pending h4{margin:12px 0 4px;font-size:11px;letter-spacing:.5px;text-transform:uppercase;opacity:.7}
+#pendingList{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:12px}
+#pendingList li{background:#242e38;padding:6px 8px;border-radius:6px;display:flex;flex-direction:column;gap:4px}
+#pendingList li .tag{font-size:10px;padding:2px 6px;border-radius:4px;background:#374151;display:inline-block;margin-right:4px}
+#pendingList li .route-CHAT_NOW{background:#065f46}
+#pendingList li .route-PAUSE{background:#4b5563}
+#pendingList li .route-END_TOPIC{background:#7e22ce}
+#pendingList li small{opacity:0.55}
+#chatForm{margin-top:8px;display:flex;flex-direction:column;gap:8px}
+#chatForm .speed-label{margin-left:auto;font-size:11px;display:flex;align-items:center;gap:6px;color:#94a3b8}
+#chatForm .speed-label input{width:90px}
+#chatInput{width:100%;resize:vertical;background:#0f1419;color:#e4e7eb;border:1px solid #334155;border-radius:8px;padding:8px;font-family:inherit;font-size:13px;line-height:1.4}
+#chatInput:focus{outline:2px solid #2563eb}
+.chat-actions{display:flex;gap:8px}
+@media (max-width:960px){#layout{flex-direction:column}#chatPanel{max-width:none}}
+#header{padding:16px 20px;background:#21262d;border-bottom:1px solid #2d333b;font-weight:600;color:#58a6ff}
+#stream{flex:1;padding:20px;overflow-y:auto;line-height:1.6;font-size:14px;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,monospace}
+.follow-btn{background:#475569 !important;}
+.follow-btn.attention{animation:pulse 1.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(59,130,246,0.4)}70%{box-shadow:0 0 0 8px rgba(59,130,246,0)}100%{box-shadow:0 0 0 0 rgba(59,130,246,0)}}
+.lesson-separator{color:#7c3aed;font-weight:600;margin:20px 0 10px;padding:8px 0;border-top:1px solid #2d333b}
+.lesson-separator:first-child{border-top:none;margin-top:0}
+.citation{color:#60a5fa;opacity:0.8}
+.typing{animation:blink 1s infinite}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0.3}}
+@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#0f1115}
+::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#484f58}

@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"/>
+<title>Curso Streaming</title>
+<link rel="stylesheet" href="/ui/ui.css" />
+</head><body>
+<header>
+ <button id="startBtn">🚀 Iniciar Curso</button>
+ <button id="streamBtn" disabled>▶️ Stream</button>
+ <div id="status">Aguardando...</div>
+</header>
+<div class="container">
+ <h2>📚 Geração de Curso em Tempo Real</h2>
+ <button id="followBtn" class="follow-btn" style="display:none">⬇️ Acompanhar</button>
+ <div id="progressWrapper">
+  <div id="progressBar"><div id="bar"></div></div>
+  <div id="percentage">0%</div>
+ </div>
+    <div id="layout">
+        <div id="content">
+            <div id="header">💭 Aguardando início...</div>
+            <div id="stream"></div>
+        </div>
+        <aside id="chatPanel">
+            <h3>💬 Chat & Perguntas</h3>
+            <div id="chatScroll">
+                <div id="answers"></div>
+                <div id="pending">
+                    <h4>Pendentes</h4>
+                    <ul id="pendingList"></ul>
+                </div>
+            </div>
+            <form id="chatForm">
+                <textarea id="chatInput" placeholder="Digite sua pergunta..." rows="2"></textarea>
+                <div class="chat-actions">
+                    <button type="submit" id="sendChat">Enviar</button>
+                                        <label class="speed-label">Velocidade
+                                            <input id="speedRange" type="range" min="4" max="60" value="12" />
+                                        </label>
+                </div>
+            </form>
+        </aside>
+    </div>
+ </div>
+</div>
+<script src="/ui/ui.js" type="module"></script>
+</body></html>

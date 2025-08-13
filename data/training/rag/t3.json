@@ -1,0 +1,9 @@
+{
+  "topicId": "t3",
+  "title": "NLP Clássico",
+  "documents": [
+    { "id": "t3d1", "text": "TF-IDF pondera termos frequentes em um documento mas raros no corpus." },
+    { "id": "t3d2", "text": "Tokenização segmenta texto em unidades linguísticas básicas." },
+    { "id": "t3d3", "text": "n-grams capturam sequências locais de n tokens." }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "topicId": "t7",
+  "title": "Sistemas de Recomendação",
+  "documents": [
+    { "id": "t7d1", "text": "Collaborative Filtering usa interações usuário-item para inferir preferências." },
+    { "id": "t7d2", "text": "Content-Based recomenda itens similares aos consumidos com base em features." },
+    { "id": "t7d3", "text": "Modelos híbridos combinam sinais colaborativos e de conteúdo para robustez." }
+  ]
+}

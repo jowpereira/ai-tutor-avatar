@@ -1,0 +1,9 @@
+{
+  "topicId": "t8",
+  "title": "MLOps Básico",
+  "documents": [
+    { "id": "t8d1", "text": "Versionamento de dados garante reprodutibilidade de experimentos." },
+    { "id": "t8d2", "text": "Tracking de experimentos armazena métricas, parâmetros e artefatos." },
+    { "id": "t8d3", "text": "Deploy contínuo possibilita atualizações frequentes de modelos em produção." }
+  ]
+}

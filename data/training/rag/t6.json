@@ -1,0 +1,9 @@
+{
+  "topicId": "t6",
+  "title": "Avaliação de Modelos",
+  "documents": [
+    { "id": "t6d1", "text": "Precisão mede proporção de verdadeiros positivos sobre predições positivas." },
+    { "id": "t6d2", "text": "AUC-ROC resume desempenho binário em vários thresholds." },
+    { "id": "t6d3", "text": "RMSE penaliza erros grandes ao calcular a raiz da média dos erros quadráticos." }
+  ]
+}

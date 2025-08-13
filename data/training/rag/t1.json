@@ -1,0 +1,9 @@
+{
+  "topicId": "t1",
+  "title": "Introdução a Machine Learning",
+  "documents": [
+    { "id": "t1d1", "text": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados." },
+    { "id": "t1d2", "text": "Principais tipos: supervisionado, não supervisionado e por reforço." },
+    { "id": "t1d3", "text": "Pipeline inclui: coleta, limpeza, feature engineering, treino, avaliação, deploy." }
+  ]
+}
