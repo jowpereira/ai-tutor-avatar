@@ -143,3 +143,12 @@ Observação: Âncoras exatas podem variar conforme ajustes futuros no arquivo d
 ---
 
 **🎯 Fase 1 concluída: geração de curso baseada em TodoList com RAG e persistência. Próxima entrega: chat/julgador.**
+
+---
+
+| Data | Tarefa | Status | Observações |
+|------|--------|--------|-------------|
+| 2025-08-13 | Ajustar Front + Fluxos Perguntas Chat/Curso | FUNDIDO | Fundido em 2025-08-14T01:50:00Z no plano Migração Front Remix |
+| 2025-08-13 | Migração Front Remix | CONCLUÍDO | Site estático funcional em localhost:3001/ui |
+| 2025-08-13 | Implementar 5 Ações Perguntas Avatar | CONCLUÍDO | ✅ Auto-processamento LLM + heurística funcionando! |
+| 2025-08-14 | Classificador Chat: 5 Ações | PENDENTE | — |

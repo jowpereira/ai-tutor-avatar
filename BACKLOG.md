@@ -39,9 +39,9 @@ DoD:
 - [ ] Evento `todo_ingested` emitido
 
 #### Story: Julgar mensagem de chat
-Descrição: Classificar mensagens em CHAT_NOW / QUEUE_BROADCAST / IGNORE.
+Descrição: Classificar mensagens em CHAT_NOW / PAUSE / END_TOPIC / IGNORE.
 Critérios:
-Given mensagem com dúvida conceitual ampla When julgada Then rota=QUEUE_BROADCAST.
+Given mensagem com dúvida conceitual ampla When julgada Then rota=PAUSE.
 DoD:
 - [ ] Heurísticas implementadas
 - [ ] Testes cobrindo 3 rotas

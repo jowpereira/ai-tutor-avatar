@@ -5,7 +5,7 @@ import { judgeMessage } from '../src/graph/nodes/judgeMessage.js';
 import { ingestMessage } from '../src/graph/nodes/ingestMessage.js';
 import { answerChatNow } from '../src/graph/nodes/answerChatNow.js';
 import { enqueueBroadcast } from '../src/graph/nodes/enqueueBroadcast.js';
-import { broadcastAnswers } from '../src/graph/nodes/broadcastAnswers.js';
+// broadcastAnswers removido do código principal (substituído por novos fluxos de pausa/fim de tópico)
 
 describe('Nodes basic', () => {
   it('ingestTodo sets currentTopicId', () => {
@@ -17,7 +17,7 @@ describe('Nodes basic', () => {
     let state = { ...initialState };
     state = { ...state, ...ingestMessage(state, { message: { participantId: 'u1', content: 'Ano?' } }) };
     const patch = judgeMessage(state);
-    expect(['CHAT_NOW', 'QUEUE_BROADCAST', 'IGNORE']).toContain(patch.route);
+  expect(['CHAT_NOW', 'PAUSE', 'END_TOPIC', 'IGNORE']).toContain(patch.route);
   });
 
   it('answerChatNow consumes pending', async () => {
@@ -28,14 +28,5 @@ describe('Nodes basic', () => {
     expect(patch.answered?.length || 0).toBeGreaterThanOrEqual(0);
   });
 
-  it('broadcastAnswers drains queue', async () => {
-    let state = { ...initialState };
-    for (let i = 0; i < 3; i++) {
-      state = { ...state, ...ingestMessage(state, { message: { participantId: 'u1', content: 'Pergunta longa explique ' + i } }) };
-      state = { ...state, ...judgeMessage(state) };
-    }
-    state = { ...state, ...enqueueBroadcast(state) };
-    const patch = await broadcastAnswers(state);
-    expect(patch.broadcastQueue?.length).toBe(0);
-  });
+  // Teste de broadcastAnswers removido (nó descontinuado)
 });

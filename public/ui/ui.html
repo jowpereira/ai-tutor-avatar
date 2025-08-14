@@ -14,6 +14,10 @@
   <div id="progressBar"><div id="bar"></div></div>
   <div id="percentage">0%</div>
  </div>
+ <div class="ondemand-controls">
+     <button id="nextLessonBtn" disabled>➕ Próxima Lição</button>
+    <button id="pulseBtn" disabled>⚡ Pulse Perguntas</button>
+ </div>
     <div id="layout">
         <div id="content">
             <div id="header">💭 Aguardando início...</div>
@@ -21,12 +25,45 @@
         </div>
         <aside id="chatPanel">
             <h3>💬 Chat & Perguntas</h3>
+                        <div id="legend" class="legend">
+                                <span class="legend-item"><span class="tag route-CHAT_NOW"></span> Resposta imediata</span>
+                                <span class="legend-item"><span class="tag route-PAUSE"></span> Aguardando pausa</span>
+                                <span class="legend-item"><span class="tag route-END_TOPIC"></span> Para fim do tópico</span>
+                                <span class="legend-item"><span class="tag route-FINAL"></span> Fim da sessão</span>
+                                <span class="legend-item"><span class="tag route-NOTE"></span> Nota apresentador</span>
+                        </div>
+                        <div id="chatControls" class="chat-controls">
+                            <button type="button" id="refreshChat" title="Atualizar estado agora">🔄 Atualizar</button>
+                            <button type="button" id="toggleAll" title="Expandir/retrair grupos">🗂️ Alternar Grupos</button>
+                            <label class="filter-immediate"><input type="checkbox" id="hideImmediate" /> Ocultar IMEDIATAS</label>
+                        </div>
             <div id="chatScroll">
                 <div id="answers"></div>
-                <div id="pending">
-                    <h4>Pendentes</h4>
-                    <ul id="pendingList"></ul>
-                </div>
+                                <div id="pending">
+                                        <h4>Pendentes</h4>
+                                        <div id="pendingGroups">
+                                                                    <div class="pending-group" id="pendingNow" data-group="now">
+                                                                        <h5 class="group-header" data-group-toggle="now">➡️ Processando / Recentes <span class="count" id="countNow"></span></h5>
+                                                <ul id="pendingListNow" class="pendingList"></ul>
+                                            </div>
+                                                                    <div class="pending-group" id="pendingPause" data-group="pause">
+                                                                        <h5 class="group-header" data-group-toggle="pause">⏸️ Aguardando Pausa <span class="count" id="countPause"></span></h5>
+                                                <ul id="pendingListPause" class="pendingList"></ul>
+                                            </div>
+                                                                    <div class="pending-group" id="pendingEnd" data-group="end">
+                                                                        <h5 class="group-header" data-group-toggle="end">🔚 Fim do Tópico <span class="count" id="countEnd"></span></h5>
+                                                <ul id="pendingListEnd" class="pendingList"></ul>
+                                            </div>
+                                            <div class="pending-group" id="pendingFinal" data-group="final">
+                                                <h5 class="group-header" data-group-toggle="final">🏁 Fim da Sessão <span class="count" id="countFinal"></span></h5>
+                                                <ul id="pendingListFinal" class="pendingList"></ul>
+                                            </div>
+                                            <div class="pending-group" id="pendingNotes" data-group="notes">
+                                                <h5 class="group-header" data-group-toggle="notes">📝 Notas Apresentador <span class="count" id="countNotes"></span></h5>
+                                                <ul id="pendingListNotes" class="pendingList"></ul>
+                                            </div>
+                                        </div>
+                                </div>
             </div>
             <form id="chatForm">
                 <textarea id="chatInput" placeholder="Digite sua pergunta..." rows="2"></textarea>

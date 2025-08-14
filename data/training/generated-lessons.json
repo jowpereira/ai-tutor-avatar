@@ -1,6 +1,158 @@
 {
   "todo": [
     {
+      "id": "t2",
+      "title": "Fundamentos de Redes Neurais",
+      "description": "Perceptron, camadas, ativação, loss e backprop",
+      "subtasks": [
+        {
+          "id": "t2s1",
+          "title": "Perceptron"
+        },
+        {
+          "id": "t2s2",
+          "title": "Funções de Ativação"
+        },
+        {
+          "id": "t2s3",
+          "title": "Backpropagation"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "NLP Clássico",
+      "description": "Tokenização, stemming, TF-IDF, n-grams",
+      "subtasks": [
+        {
+          "id": "t3s1",
+          "title": "Tokenização"
+        },
+        {
+          "id": "t3s2",
+          "title": "TF-IDF"
+        },
+        {
+          "id": "t3s3",
+          "title": "n-grams"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "Transformers Essentials",
+      "description": "Self-attention, embeddings, positional encoding",
+      "subtasks": [
+        {
+          "id": "t4s1",
+          "title": "Self-Attention"
+        },
+        {
+          "id": "t4s2",
+          "title": "Positional Encoding"
+        },
+        {
+          "id": "t4s3",
+          "title": "Arquitetura Encoder-Decoder"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "Prompt Engineering",
+      "description": "Padrões de prompt, few-shot, role prompting",
+      "subtasks": [
+        {
+          "id": "t5s1",
+          "title": "Estratégias"
+        },
+        {
+          "id": "t5s2",
+          "title": "Few-shot"
+        },
+        {
+          "id": "t5s3",
+          "title": "Chain-of-Thought"
+        }
+      ]
+    },
+    {
+      "id": "t6",
+      "title": "Avaliação de Modelos",
+      "description": "Métricas de classificação, regressão, ranking",
+      "subtasks": [
+        {
+          "id": "t6s1",
+          "title": "Precisão & Recall"
+        },
+        {
+          "id": "t6s2",
+          "title": "AUC-ROC"
+        },
+        {
+          "id": "t6s3",
+          "title": "RMSE"
+        }
+      ]
+    },
+    {
+      "id": "t7",
+      "title": "Sistemas de Recomendação",
+      "description": "Collaborative filtering, conteúdo e híbridos",
+      "subtasks": [
+        {
+          "id": "t7s1",
+          "title": "User-Item Matrix"
+        },
+        {
+          "id": "t7s2",
+          "title": "Content-Based"
+        },
+        {
+          "id": "t7s3",
+          "title": "Modelo Híbrido"
+        }
+      ]
+    },
+    {
+      "id": "t8",
+      "title": "MLOps Básico",
+      "description": "Versionamento, tracking, deployment",
+      "subtasks": [
+        {
+          "id": "t8s1",
+          "title": "Versionamento de Dados"
+        },
+        {
+          "id": "t8s2",
+          "title": "Tracking de Experimentos"
+        },
+        {
+          "id": "t8s3",
+          "title": "Deploy Contínuo"
+        }
+      ]
+    },
+    {
+      "id": "t9",
+      "title": "RAG Pipeline",
+      "description": "Ingestão, indexação, retrieval, geração",
+      "subtasks": [
+        {
+          "id": "t9s1",
+          "title": "Indexação"
+        },
+        {
+          "id": "t9s2",
+          "title": "Retrieval"
+        },
+        {
+          "id": "t9s3",
+          "title": "Grounded Generation"
+        }
+      ]
+    },
+    {
       "id": "t10",
       "title": "Fine-tuning & Adaptação",
       "description": "Fine-tuning, LoRA, adapters, PEFT",
@@ -25,14 +177,14 @@
       "id": "t1s1-sec",
       "topicId": "t1",
       "subtaskId": "t1s1",
-      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados. Os principais tipos são supervisionado, não supervisionado e por reforço. O pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy.\nPara começar, os algoritmos de Machine Learning são treinados para reconhecer padrões nos dados. Em seguida, são aplicados em diferentes contextos para fazer previsões ou tomar decisões. Depois, os modelos são avaliados para verificar sua eficácia e ajustados conforme necessário.\nPortanto, o processo de Machine Learning envolve uma série de etapas interligadas que visam aprimorar a capacidade dos algoritmos de aprender e se adaptar. Por fim, os modelos treinados são implantados em produção para realizar tarefas específicas de forma automatizada e eficiente.\nEm resumo, Machine Learning é um campo que utiliza algoritmos para aprender padrões a partir de dados, seguindo um pipeline que inclui desde a coleta até o deploy dos modelos treinados.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[1:t1d1]]. Os principais tipos são supervisionado, não supervisionado e por reforço [[2:t1d2]]. O pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy [[3:t1d3]].\nEm resumo, Machine Learning é um campo que se dedica a estudar algoritmos capazes de aprender padrões a partir de dados, com diferentes tipos de abordagens e um pipeline de etapas bem definido.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": []
     },
     {
       "id": "t1s2-sec",
       "topicId": "t1",
       "subtaskId": "t1s2",
-      "content": "Aprendizado supervisionado e não supervisionado são dois tipos principais de algoritmos de Machine Learning. No aprendizado supervisionado, os modelos são treinados com dados rotulados, ou seja, com exemplos de entrada e saída esperada. Já no aprendizado não supervisionado, os modelos são treinados com dados não rotulados, buscando identificar padrões e estruturas nos dados [[1:t1d1]].\nNo processo de Machine Learning, o pipeline de trabalho inclui etapas como coleta de dados, limpeza, engenharia de features, treinamento do modelo, avaliação de desempenho e implantação do modelo em produção [[2:t1d3]]. No aprendizado supervisionado, é essencial ter um conjunto de dados rotulados para treinar o modelo, enquanto no aprendizado não supervisionado, o modelo busca identificar padrões sem a necessidade de rótulos nos dados.\nEm resumo, o aprendizado supervisionado e não supervisionado são abordagens distintas em Machine Learning. Enquanto o supervisionado requer dados rotulados para treinar modelos, o não supervisionado busca identificar padrões e estruturas nos dados sem a necessidade de rótulos. Ambos os tipos de aprendizado têm suas aplicações e são fundamentais para o desenvolvimento de soluções de Machine Learning.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Aprendizado Supervisionado e Não Supervisionado são dois tipos de algoritmos de Machine Learning. No Supervisionado, o modelo é treinado com dados rotulados, enquanto no Não Supervisionado, o modelo é treinado com dados não rotulados.\nNo Aprendizado Supervisionado, o modelo aprende a partir de exemplos rotulados, ou seja, ele é fornecido com pares de entrada e saída esperada. Já no Aprendizado Não Supervisionado, o modelo precisa encontrar padrões nos dados sem a necessidade de rótulos.\nNo processo de Machine Learning, o pipeline inclui etapas como coleta de dados, limpeza, engenharia de features, treino do modelo, avaliação de desempenho e deploy do modelo em produção. Cada etapa é fundamental para o sucesso do projeto de Machine Learning.\nEm resumo, o Aprendizado Supervisionado e Não Supervisionado são abordagens distintas no campo de Machine Learning, cada uma com suas próprias características e aplicações. É importante entender as diferenças entre esses dois tipos de aprendizado para escolher a abordagem mais adequada para cada problema.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": [
         "[[ref:1:t1d1]]",
         "[[ref:2:t1d2]]",
@@ -43,7 +195,7 @@
       "id": "t1s3-sec",
       "topicId": "t1",
       "subtaskId": "t1s3",
-      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[1:t1d1]]. Os principais tipos são supervisionado, não supervisionado e por reforço [[2:t1d2]]. Um Pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy [[3:t1d3]].\nPrimeiro, os dados são coletados e preparados para análise. Em seguida, é feita a limpeza dos dados, removendo outliers e preenchendo valores faltantes. Depois, ocorre o processo de feature engineering, onde as variáveis são transformadas e selecionadas para o modelo.\nNo treino, o algoritmo é alimentado com os dados para aprender padrões e fazer previsões. Após o treino, o modelo é avaliado para verificar sua performance e ajustes são feitos, se necessário. Por fim, o modelo é implantado para uso em produção.\nEm resumo, um Pipeline de Machine Learning envolve desde a coleta e preparação dos dados até a implantação do modelo treinado, passando por etapas como limpeza, feature engineering, treino e avaliação.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[1:t1d1]]. Os principais tipos são supervisionado, não supervisionado e por reforço [[2:t1d2]]. Um Pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy [[3:t1d3]].\nPrimeiro, os dados são coletados e preparados para análise. Em seguida, é feita a limpeza dos dados, removendo outliers e preenchendo valores faltantes. Depois, ocorre o processo de feature engineering, onde as variáveis são transformadas para melhorar o desempenho do modelo.\nNo treino, o algoritmo é alimentado com os dados para aprender padrões e fazer previsões. Após o treino, o modelo é avaliado para verificar sua eficácia e ajustes são feitos, se necessário. Por fim, o modelo é implantado para uso em produção.\nEm resumo, um Pipeline de Machine Learning passa por etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy para desenvolver e implementar modelos preditivos.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": [
         "[[ref:1:t1d1]]",
         "[[ref:2:t1d2]]",
@@ -54,329 +206,52 @@
       "id": "t2s1-sec",
       "topicId": "t2",
       "subtaskId": "t2s1",
-      "content": "Redes neurais são compostas por camadas de unidades conectadas com pesos ajustáveis. As funções de ativação mais comuns são ReLU, Sigmoid e Tanh. O processo de backpropagation é utilizado para calcular gradientes e atualizar os pesos das conexões.\nPrimeiro, as entradas são propagadas pela rede neural, passando pelos neurônios e aplicando os pesos. Em seguida, a saída é comparada com a saída desejada para calcular o erro. Depois, o algoritmo de backpropagation calcula os gradientes via regra da cadeia para ajustar os pesos e minimizar o erro.\nPortanto, o Perceptron é um modelo simples de rede neural de uma única camada. Ele pode ser usado para problemas de classificação binária, ajustando os pesos com base nos erros de classificação. Por fim, o Perceptron pode ser estendido para redes neurais mais complexas, com múltiplas camadas e funções de ativação variadas.\nEm resumo, o Perceptron é um modelo básico de rede neural que utiliza o algoritmo de backpropagation para ajustar os pesos e minimizar os erros de classificação. É um ponto de partida importante para entender o funcionamento das redes neurais mais complexas.\n\nReferências: [[ref:1:t2d1]] [[ref:2:t2d2]] [[ref:3:t2d3]]",
+      "content": "O Perceptron é um tipo de rede neural composta por unidades conectadas com pesos ajustáveis. Essas unidades são organizadas em camadas, e a saída de uma unidade é determinada pela soma ponderada das entradas, seguida de uma função de ativação. As funções de ativação mais comuns são ReLU, Sigmoid e Tanh, que introduzem não-linearidades nas saídas das unidades [[ref:t2d2]].\nDurante o treinamento do Perceptron, o algoritmo de backpropagation é utilizado para calcular os gradientes dos pesos em relação a uma função de custo. Isso é feito através da regra da cadeia, permitindo a atualização dos pesos de forma a minimizar a função de custo e melhorar o desempenho da rede [[ref:t2d3]].\nEm resumo, o Perceptron é uma arquitetura simples de rede neural que utiliza pesos ajustáveis e funções de ativação para aprender a mapear entradas para saídas. O algoritmo de backpropagation é essencial para o treinamento do Perceptron, permitindo a atualização dos pesos com base nos gradientes calculados.\n\nReferências: [[ref:1:t2d1]] [[ref:2:t2d2]] [[ref:3:t2d3]]",
       "citations": [
+        "[[ref:t2d2]]",
+        "[[ref:t2d3]]",
         "[[ref:1:t2d1]]",
         "[[ref:2:t2d2]]",
         "[[ref:3:t2d3]]"
-      ]
-    },
-    {
-      "id": "t2s2-sec",
-      "topicId": "t2",
-      "subtaskId": "t2s2",
-      "content": "Redes neurais são compostas por camadas de unidades conectadas com pesos ajustáveis. As funções de ativação desempenham um papel crucial nesse processo, ajudando a introduzir não linearidades nas redes. Entre as funções de ativação comuns estão ReLU, Sigmoid e Tanh.\nEssas funções são aplicadas às saídas das unidades em cada camada, permitindo que a rede aprenda e generalize melhor. Durante o treinamento, o algoritmo de backpropagation calcula os gradientes via regra da cadeia para atualizar os pesos da rede de forma a minimizar a função de perda.\nAo ajustar os pesos com base nos gradientes calculados, a rede neural é capaz de aprender a partir dos dados de treinamento e fazer previsões mais precisas. Em resumo, as funções de ativação desempenham um papel fundamental no funcionamento das redes neurais, permitindo a aprendizagem de representações complexas e a realização de tarefas de forma eficiente.\n\nReferências: [[ref:1:t2d1]] [[ref:2:t2d2]] [[ref:3:t2d3]]",
-      "citations": [
-        "[[ref:1:t2d1]]",
-        "[[ref:2:t2d2]]",
-        "[[ref:3:t2d3]]"
-      ]
-    },
-    {
-      "id": "t2s3-sec",
-      "topicId": "t2",
-      "subtaskId": "t2s3",
-      "content": "Redes neurais são compostas por camadas de unidades conectadas com pesos ajustáveis. Funções de ativação comuns incluem ReLU, Sigmoid e Tanh. O algoritmo de backpropagation calcula gradientes via regra da cadeia para atualizar os pesos das conexões. Esse processo é essencial para o treinamento eficiente de redes neurais, permitindo que elas aprendam a partir dos dados de entrada e ajustem seus pesos para melhorar a precisão das previsões.\nEm resumo, o backpropagation é um algoritmo fundamental no treinamento de redes neurais, permitindo a atualização dos pesos das conexões com base nos gradientes calculados via regra da cadeia. Isso possibilita que a rede neural aprenda com os dados de entrada e melhore sua capacidade de fazer previsões precisas.\n\nReferências: [[ref:1:t2d1]] [[ref:2:t2d2]] [[ref:3:t2d3]]",
-      "citations": [
-        "[[ref:1:t2d1]]",
-        "[[ref:2:t2d2]]",
-        "[[ref:3:t2d3]]"
-      ]
-    },
-    {
-      "id": "t3s1-sec",
-      "topicId": "t3",
-      "subtaskId": "t3s1",
-      "content": "A tokenização é o processo de segmentar um texto em unidades linguísticas básicas, como palavras ou subpalavras. Essas unidades são essenciais para a análise de texto, permitindo a aplicação de técnicas como TF-IDF e n-grams. O TF-IDF, por exemplo, pondera termos frequentes em um documento, mas raros no corpus, enquanto os n-grams capturam sequências locais de n tokens. Essas técnicas são fundamentais para a extração de informações e padrões em textos.\nEm resumo, a tokenização é um passo crucial na análise de texto, permitindo a aplicação de diversas técnicas para a extração de informações relevantes. Ela segmenta o texto em unidades linguísticas básicas, como palavras, facilitando a aplicação de algoritmos como TF-IDF e n-grams. Essas técnicas são essenciais para a análise de texto e a extração de padrões e informações importantes.\n\nReferências: [[ref:1:t3d1]] [[ref:2:t3d2]] [[ref:3:t3d3]]",
-      "citations": [
-        "[[ref:1:t3d1]]",
-        "[[ref:2:t3d2]]",
-        "[[ref:3:t3d3]]"
-      ]
-    },
-    {
-      "id": "t3s2-sec",
-      "topicId": "t3",
-      "subtaskId": "t3s2",
-      "content": "TF-IDF, ou Term Frequency-Inverse Document Frequency, é uma técnica utilizada para avaliar a importância de um termo em um documento em relação a um corpus. Ela pondera termos que são frequentes em um documento, mas raros no corpus, atribuindo um peso maior a esses termos. A ideia por trás do TF-IDF é identificar termos que sejam relevantes e distintivos para um determinado documento.\nPara aplicar o TF-IDF, é necessário primeiro realizar a tokenização do texto, que consiste em segmentar o texto em unidades linguísticas básicas, como palavras. Em seguida, é possível calcular o TF-IDF de cada termo, levando em consideração a frequência do termo no documento e a frequência inversa do termo no corpus. Dessa forma, termos que aparecem com frequência no documento, mas são raros no corpus, terão um peso maior no cálculo do TF-IDF.\nAlém disso, o uso de n-grams também pode ser útil para capturar sequências locais de n tokens em um texto. Os n-grams podem ajudar a identificar padrões e relações entre os termos em um documento, contribuindo para uma análise mais detalhada da informação presente no texto.\nEm resumo, o TF-IDF é uma técnica importante para avaliar a relevância e importância dos termos em um documento em relação ao corpus, permitindo identificar termos distintivos e relevantes. A tokenização e o uso de n-grams são etapas complementares que auxiliam na análise e interpretação dos textos de forma mais precisa.\n\nReferências: [[ref:1:t3d1]] [[ref:2:t3d2]] [[ref:3:t3d3]]",
-      "citations": [
-        "[[ref:1:t3d1]]",
-        "[[ref:2:t3d2]]",
-        "[[ref:3:t3d3]]"
-      ]
-    },
-    {
-      "id": "t3s3-sec",
-      "topicId": "t3",
-      "subtaskId": "t3s3",
-      "content": "A técnica de TF-IDF pondera a importância de termos com base em sua frequência em um documento e sua raridade no corpus em geral. Já a tokenização divide o texto em unidades linguísticas básicas. Os n-grams, por sua vez, capturam sequências locais de n tokens, permitindo analisar a relação entre palavras em um contexto específico. Esses conceitos são fundamentais para a análise de texto e extração de informações relevantes.\nAo utilizar n-grams, é possível identificar padrões e relações entre palavras que não seriam percebidos de forma isolada. Por exemplo, ao analisar bigramas (n=2), é possível observar quais palavras frequentemente aparecem juntas em um texto, o que pode fornecer insights sobre o significado e a estrutura do documento. Os n-grams são especialmente úteis em tarefas como classificação de texto, tradução automática e análise de sentimentos.\nEm resumo, os n-grams são uma ferramenta poderosa para analisar e compreender a estrutura e o significado de textos. Ao capturar sequências locais de palavras, eles permitem extrair informações importantes e identificar padrões que seriam difíceis de detectar de outra forma. Essa técnica é amplamente utilizada em diversas áreas, contribuindo para a melhoria de algoritmos de processamento de linguagem natural e para a extração de insights valiosos a partir de grandes volumes de texto.\n\nReferências: [[ref:1:t3d1]] [[ref:2:t3d2]] [[ref:3:t3d3]]",
-      "citations": [
-        "[[ref:1:t3d1]]",
-        "[[ref:2:t3d2]]",
-        "[[ref:3:t3d3]]"
-      ]
-    },
-    {
-      "id": "t4s1-sec",
-      "topicId": "t4",
-      "subtaskId": "t4s1",
-      "content": "Self-Attention é uma técnica que calcula pesos de similaridade entre todos os pares de tokens. Isso permite que o modelo leve em consideração a relação entre todas as palavras em uma sequência.\nPara garantir que a ordem das palavras seja levada em conta, o Positional Encoding é utilizado para injetar informações de posição na representação dos tokens, utilizando funções senoidais.\nNo processo de codificação, o Encoder empilha blocos de attention e feed-forward, combinados com normalização. Isso ajuda o modelo a aprender representações mais ricas e complexas das sequências de entrada.\nEm resumo, o Self-Attention é uma técnica poderosa que permite que os modelos de linguagem capturem relações complexas entre as palavras em uma sequência, levando em consideração a ordem e a importância de cada token.\n\nReferências: [[ref:1:t4d1]] [[ref:2:t4d2]] [[ref:3:t4d3]]",
-      "citations": [
-        "[[ref:1:t4d1]]",
-        "[[ref:2:t4d2]]",
-        "[[ref:3:t4d3]]"
-      ]
-    },
-    {
-      "id": "t4s2-sec",
-      "topicId": "t4",
-      "subtaskId": "t4s2",
-      "content": "Self-Attention calcula pesos de similaridade entre todos os pares de tokens. Positional Encoding injeta informação de ordem usando funções senoidais. O Encoder empilha blocos de attention + feed-forward com normalização.\nEssa combinação de técnicas permite que o modelo de Transformer capture tanto a relação entre os tokens quanto a ordem em que aparecem no texto. Através do Self-Attention e do Positional Encoding, o modelo consegue aprender representações mais ricas e contextuais.\nEm resumo, o Positional Encoding é essencial para que o Transformer consiga entender a ordem dos tokens em um texto, complementando o processo de Self-Attention para uma melhor compreensão e geração de sequências de forma mais eficaz.\n\nReferências: [[ref:1:t4d1]] [[ref:2:t4d2]] [[ref:3:t4d3]]",
-      "citations": [
-        "[[ref:1:t4d1]]",
-        "[[ref:2:t4d2]]",
-        "[[ref:3:t4d3]]"
-      ]
-    },
-    {
-      "id": "t4s3-sec",
-      "topicId": "t4",
-      "subtaskId": "t4s3",
-      "content": "A arquitetura Encoder-Decoder é fundamental em modelos de aprendizado profundo para tarefas de processamento de linguagem natural. O Self-Attention, presente no Encoder, calcula pesos de similaridade entre todos os pares de tokens [[1:t4d1]]. Para garantir a ordem das palavras, o Positional Encoding adiciona informações de posição por meio de funções senoidais [[2:t4d2]]. O Encoder empilha blocos de attention e feed-forward com normalização para processar a entrada de forma eficiente [[3:t4d3]].\nEm resumo, a arquitetura Encoder-Decoder é composta por um Encoder que utiliza Self-Attention e Positional Encoding para processar a entrada, e um Decoder que gera a saída com base nas informações codificadas. Essa estrutura é essencial para o sucesso de modelos de linguagem e tradução automática.\n\nReferências: [[ref:1:t4d1]] [[ref:2:t4d2]] [[ref:3:t4d3]]",
-      "citations": [
-        "[[ref:1:t4d1]]",
-        "[[ref:2:t4d2]]",
-        "[[ref:3:t4d3]]"
-      ]
-    },
-    {
-      "id": "t5s1-sec",
-      "topicId": "t5",
-      "subtaskId": "t5s1",
-      "content": "Prompts estruturados são úteis para ajudar modelos a seguir instruções complexas, facilitando o aprendizado. Por exemplo, o uso de prompts pode orientar o modelo a realizar tarefas específicas de forma mais eficiente [[1:t5d1]]. Além disso, o método de Few-shot demonstra o formato de entrada e saída ao modelo, permitindo que ele aprenda com poucos exemplos [[2:t5d2]].\nOutra estratégia interessante é o Chain-of-Thought, que incentiva o raciocínio passo a passo em problemas difíceis. Esse método ajuda a desenvolver a capacidade do modelo de pensar de forma mais sequencial e lógica, o que pode ser crucial em diversas aplicações [[3:t5d3]]. Ao seguir uma abordagem estruturada como essa, os modelos podem melhorar sua capacidade de resolver problemas complexos de maneira mais eficaz.\nEm resumo, a utilização de prompts estruturados, o método Few-shot e o Chain-of-Thought são estratégias importantes para auxiliar os modelos a lidar com instruções complexas, aprender com poucos exemplos e desenvolver raciocínio passo a passo em problemas desafiadores. Essas abordagens contribuem para o aprimoramento do desempenho dos modelos em diversas tarefas e cenários.\n\nReferências: [[ref:1:t5d1]] [[ref:2:t5d2]] [[ref:3:t5d3]]",
-      "citations": [
-        "[[ref:1:t5d1]]",
-        "[[ref:2:t5d2]]",
-        "[[ref:3:t5d3]]"
-      ]
-    },
-    {
-      "id": "t5s2-sec",
-      "topicId": "t5",
-      "subtaskId": "t5s2",
-      "content": "Prompts estruturados são úteis para guiar modelos em instruções complexas, como mostrado em [1:t5d1]. No contexto de Few-shot, o modelo recebe exemplos limitados de entrada e saída para aprender a generalizar padrões, conforme destacado em [2:t5d2]. Além disso, o método Chain-of-Thought promove o raciocínio passo a passo em problemas desafiadores, como mencionado em [3:t5d3].\nEssas abordagens são essenciais para capacitar modelos a lidar com tarefas complexas com poucos exemplos de treinamento. Ao seguir prompts estruturados, o modelo consegue compreender instruções detalhadas e executar tarefas de forma mais precisa. Com o Few-shot, ele aprende a generalizar a partir de poucos exemplos, ampliando sua capacidade de lidar com novas situações. Já o Chain-of-Thought estimula o raciocínio passo a passo, auxiliando na resolução de problemas difíceis de forma mais eficiente.\nEm resumo, prompts estruturados, Few-shot e Chain-of-Thought são técnicas fundamentais para melhorar a capacidade dos modelos de lidar com tarefas complexas com poucos exemplos de treinamento, promovendo um aprendizado mais eficaz e preciso.\n\nReferências: [[ref:1:t5d1]] [[ref:2:t5d2]] [[ref:3:t5d3]]",
-      "citations": [
-        "[[ref:1:t5d1]]",
-        "[[ref:2:t5d2]]",
-        "[[ref:3:t5d3]]"
-      ]
-    },
-    {
-      "id": "t5s3-sec",
-      "topicId": "t5",
-      "subtaskId": "t5s3",
-      "content": "Prompts estruturados são úteis para ajudar modelos a seguir instruções complexas, facilitando a compreensão e execução de tarefas. Além disso, o uso de few-shot demonstra o formato de entrada e saída ao modelo, permitindo que ele aprenda com poucos exemplos. Já o método Chain-of-Thought incentiva o raciocínio passo a passo em problemas difíceis, auxiliando na resolução de questões mais complexas de forma organizada e lógica. Em resumo, essas abordagens contribuem para o desenvolvimento de modelos de inteligência artificial mais eficientes e capazes de lidar com desafios variados.\n\nReferências: [[ref:1:t5d1]] [[ref:2:t5d2]] [[ref:3:t5d3]]",
-      "citations": [
-        "[[ref:1:t5d1]]",
-        "[[ref:2:t5d2]]",
-        "[[ref:3:t5d3]]"
-      ]
-    },
-    {
-      "id": "t6s1-sec",
-      "topicId": "t6",
-      "subtaskId": "t6s1",
-      "content": "A precisão é a medida da proporção de verdadeiros positivos em relação às predições positivas [[1:t6d1]]. Ela é importante para avaliar o quão confiáveis são as predições feitas por um modelo. Já a AUC-ROC resume o desempenho binário em diferentes thresholds, fornecendo uma visão geral da capacidade de classificação do modelo [[2:t6d2]].\nAlém disso, o RMSE (Root Mean Square Error) é uma métrica que penaliza erros grandes ao calcular a raiz da média dos erros quadráticos [[3:t6d3]]. Essa métrica é comumente utilizada em problemas de regressão para avaliar o quão bem o modelo está prevendo os valores reais.\nEm resumo, a precisão, a AUC-ROC e o RMSE são métricas essenciais para avaliar a performance de modelos de machine learning em diferentes contextos, seja para classificação ou regressão. Cada uma delas fornece insights valiosos sobre a qualidade das predições e pode auxiliar na tomada de decisões e ajustes nos modelos.\n\nReferências: [[ref:1:t6d1]] [[ref:2:t6d2]] [[ref:3:t6d3]]",
-      "citations": [
-        "[[ref:1:t6d1]]",
-        "[[ref:2:t6d2]]",
-        "[[ref:3:t6d3]]"
-      ]
-    },
-    {
-      "id": "t6s2-sec",
-      "topicId": "t6",
-      "subtaskId": "t6s2",
-      "content": "A precisão mede a proporção de verdadeiros positivos em relação às predições positivas. Já a AUC-ROC resume o desempenho binário em diferentes thresholds. O RMSE, por sua vez, penaliza erros grandes ao calcular a raiz da média dos erros quadráticos.\nEm resumo, a precisão, a AUC-ROC e o RMSE são métricas importantes para avaliar o desempenho de modelos em problemas de classificação. Cada uma delas oferece insights específicos sobre a qualidade das previsões, auxiliando na tomada de decisões e no aprimoramento dos modelos.\n\nReferências: [[ref:1:t6d1]] [[ref:2:t6d2]] [[ref:3:t6d3]]",
-      "citations": [
-        "[[ref:1:t6d1]]",
-        "[[ref:2:t6d2]]",
-        "[[ref:3:t6d3]]"
-      ]
-    },
-    {
-      "id": "t6s3-sec",
-      "topicId": "t6",
-      "subtaskId": "t6s3",
-      "content": "A raiz do erro quadrático médio (RMSE) é uma métrica que penaliza erros grandes ao calcular a média dos erros quadráticos. Enquanto a precisão mede a proporção de verdadeiros positivos sobre as predições positivas e a AUC-ROC resume o desempenho binário em vários thresholds, o RMSE fornece uma medida mais sensível a erros significativos.\nO RMSE é especialmente útil em problemas onde erros grandes são mais críticos e precisam ser levados em consideração de forma mais ponderada. Ao calcular a raiz da média dos erros quadráticos, essa métrica consegue capturar a magnitude dos erros de forma mais precisa, o que pode ser crucial em determinados contextos de análise de dados.\nEm resumo, o RMSE é uma métrica importante para avaliar a precisão de modelos em situações onde erros grandes têm um impacto significativo. Ao considerar a magnitude dos erros de forma mais sensível, o RMSE pode fornecer insights valiosos sobre o desempenho de um modelo em determinado problema.\n\nReferências: [[ref:1:t6d1]] [[ref:2:t6d2]] [[ref:3:t6d3]]",
-      "citations": [
-        "[[ref:1:t6d1]]",
-        "[[ref:2:t6d2]]",
-        "[[ref:3:t6d3]]"
-      ]
-    },
-    {
-      "id": "t7s1-sec",
-      "topicId": "t7",
-      "subtaskId": "t7s1",
-      "content": "Collaborative Filtering utiliza interações usuário-item para inferir preferências, enquanto o Content-Based recomenda itens similares aos consumidos com base em features. Modelos híbridos combinam sinais colaborativos e de conteúdo para maior robustez.\nEm Collaborative Filtering, a User-Item Matrix é fundamental, representando as interações entre usuários e itens. Cada célula da matriz contém a interação de um usuário com um item específico, como uma avaliação ou uma compra.\nA User-Item Matrix é utilizada para calcular a similaridade entre usuários ou itens, identificar padrões de comportamento e fazer recomendações personalizadas. Ela é essencial para o funcionamento eficaz de sistemas de recomendação baseados em filtragem colaborativa.\nEm resumo, a User-Item Matrix é uma ferramenta essencial para sistemas de recomendação, permitindo a análise de interações usuário-item e a geração de recomendações personalizadas. Ela desempenha um papel crucial na filtragem colaborativa e na criação de experiências de recomendação mais precisas e relevantes para os usuários.\n\nReferências: [[ref:1:t7d1]] [[ref:2:t7d2]] [[ref:3:t7d3]]",
-      "citations": [
-        "[[ref:1:t7d1]]",
-        "[[ref:2:t7d2]]",
-        "[[ref:3:t7d3]]"
-      ]
-    },
-    {
-      "id": "t7s2-sec",
-      "topicId": "t7",
-      "subtaskId": "t7s2",
-      "content": "Collaborative Filtering usa interações usuário-item para inferir preferências. Content-Based, por sua vez, recomenda itens similares aos consumidos com base em features. Modelos híbridos combinam sinais colaborativos e de conteúdo para robustez.\nEm resumo, Collaborative Filtering e Content-Based são abordagens distintas para recomendação de itens, sendo que modelos h híbridos combinam o melhor dos dois mundos para oferecer recomendações mais precisas e personalizadas aos usuários.\n\nReferências: [[ref:1:t7d1]] [[ref:2:t7d2]] [[ref:3:t7d3]]",
-      "citations": [
-        "[[ref:1:t7d1]]",
-        "[[ref:2:t7d2]]",
-        "[[ref:3:t7d3]]"
-      ]
-    },
-    {
-      "id": "t7s3-sec",
-      "topicId": "t7",
-      "subtaskId": "t7s3",
-      "content": "Modelos híbridos combinam sinais colaborativos e de conteúdo para recomendações mais robustas. Primeiro, o Collaborative Filtering usa interações usuário-item para inferir preferências. Em seguida, o Content-Based recomenda itens similares aos consumidos com base em features. Essa combinação permite considerar diferentes aspectos do comportamento do usuário, resultando em recomendações mais personalizadas e precisas. Portanto, os modelos híbridos são amplamente utilizados em sistemas de recomendação para melhorar a experiência do usuário. Em resumo, a abordagem híbrida é uma estratégia eficaz para aprimorar a qualidade das recomendações, levando em conta tanto as preferências do usuário quanto as características dos itens recomendados.\n\nReferências: [[ref:1:t7d1]] [[ref:2:t7d2]] [[ref:3:t7d3]]",
-      "citations": [
-        "[[ref:1:t7d1]]",
-        "[[ref:2:t7d2]]",
-        "[[ref:3:t7d3]]"
-      ]
-    },
-    {
-      "id": "t8s1-sec",
-      "topicId": "t8",
-      "subtaskId": "t8s1",
-      "content": "Versionamento de dados é essencial para garantir a reprodutibilidade de experimentos [[1:t8d1]]. Ao rastrear métricas, parâmetros e artefatos dos experimentos, o tracking de experimentos facilita a análise e compreensão dos resultados [[2:t8d2]]. Com o deploy contínuo, é possível realizar atualizações frequentes nos modelos em produção, mantendo-os sempre atualizados e eficientes [[3:t8d3]].\nPortanto, ao adotar práticas de versionamento de dados, tracking de experimentos e deploy contínuo, as equipes de ciência de dados podem garantir a qualidade e eficácia de seus modelos, permitindo uma evolução constante e melhorias contínuas. Em resumo, a combinação dessas práticas é fundamental para o sucesso e a inovação no campo da ciência de dados.\n\nReferências: [[ref:1:t8d1]] [[ref:2:t8d2]] [[ref:3:t8d3]]",
-      "citations": [
-        "[[ref:1:t8d1]]",
-        "[[ref:2:t8d2]]",
-        "[[ref:3:t8d3]]"
-      ]
-    },
-    {
-      "id": "t8s2-sec",
-      "topicId": "t8",
-      "subtaskId": "t8s2",
-      "content": "Versionamento de dados é essencial para garantir a reprodutibilidade de experimentos [[1:t8d1]]. O tracking de experimentos, por sua vez, armazena métricas, parâmetros e artefatos relevantes [[2:t8d2]]. Com o deploy contínuo, é possível realizar atualizações frequentes nos modelos em produção [[3:t8d3]].\nPortanto, ao utilizar o versionamento de dados e o tracking de experimentos, é possível garantir a transparência e a confiabilidade dos resultados obtidos em experimentos. Com o deploy contínuo, as atualizações nos modelos podem ser feitas de forma ágil e eficiente, mantendo a qualidade e a relevância dos mesmos.\nEm resumo, o uso combinado do versionamento de dados, tracking de experimentos e deploy contínuo é fundamental para o sucesso e a evolução de projetos de ciência de dados e machine learning.\n\nReferências: [[ref:1:t8d1]] [[ref:2:t8d2]] [[ref:3:t8d3]]",
-      "citations": [
-        "[[ref:1:t8d1]]",
-        "[[ref:2:t8d2]]",
-        "[[ref:3:t8d3]]"
-      ]
-    },
-    {
-      "id": "t8s3-sec",
-      "topicId": "t8",
-      "subtaskId": "t8s3",
-      "content": "O versionamento de dados garante a reprodutibilidade de experimentos, enquanto o tracking de experimentos armazena métricas, parâmetros e artefatos [[1:t8d1]] [[2:t8d2]]. Com o deploy contínuo, é possível realizar atualizações frequentes de modelos em produção [[3:t8d3]].\nEssa prática possibilita que as equipes de desenvolvimento e operações trabalhem de forma integrada, garantindo que as atualizações sejam implementadas de maneira eficiente e segura. Além disso, o deploy contínuo ajuda a reduzir o tempo entre o desenvolvimento e a entrega de novas funcionalidades aos usuários finais.\nEm resumo, o deploy contínuo é uma estratégia fundamental para garantir a agilidade e eficiência no ciclo de vida de desenvolvimento de software, permitindo atualizações frequentes e seguras dos modelos em produção.\n\nReferências: [[ref:1:t8d1]] [[ref:2:t8d2]] [[ref:3:t8d3]]",
-      "citations": [
-        "[[ref:1:t8d1]]",
-        "[[ref:2:t8d2]]",
-        "[[ref:3:t8d3]]"
-      ]
-    },
-    {
-      "id": "t9s1-sec",
-      "topicId": "t9",
-      "subtaskId": "t9s1",
-      "content": "A indexação eficiente de documentos requer embeddings vetoriais consistentes para facilitar a recuperação de informações [[2:t9d2]]. O uso de referências explícitas na geração condicionada ao contexto ajuda a reduzir a alucinação de resultados [[3:t9d3]]. O RAG combina a recuperação de documentos com a geração condicionada ao contexto, proporcionando uma abordagem mais completa e precisa para lidar com informações textuais [[1:t9d1]].\nEm resumo, a indexação eficiente, a geração condicionada ao contexto e a redução da alucinação são aspectos fundamentais para melhorar a qualidade e a precisão do processamento de informações textuais.\n\nReferências: [[ref:1:t9d1]] [[ref:2:t9d2]] [[ref:3:t9d3]]",
-      "citations": [
-        "[[ref:1:t9d1]]",
-        "[[ref:2:t9d2]]",
-        "[[ref:3:t9d3]]"
-      ]
-    },
-    {
-      "id": "t9s2-sec",
-      "topicId": "t9",
-      "subtaskId": "t9s2",
-      "content": "Recuperação de informações é fundamental em sistemas de inteligência artificial. O uso de modelos como o RAG permite combinar recuperação de documentos com geração condicionada ao contexto [[1:t9d1]]. Para garantir uma indexação eficiente, é necessário contar com embeddings vetoriais consistentes [[2:t9d2]]. Além disso, a geração fundamentada reduz a alucinação ao utilizar referências explícitas [[3:t9d3]].\nEm resumo, a combinação de recuperação de informações com geração condicionada ao contexto, aliada a embeddings vetoriais consistentes e geração fundamentada, é essencial para garantir a eficácia dos sistemas de inteligência artificial.\n\nReferências: [[ref:1:t9d1]] [[ref:2:t9d2]] [[ref:3:t9d3]]",
-      "citations": [
-        "[[ref:1:t9d1]]",
-        "[[ref:2:t9d2]]",
-        "[[ref:3:t9d3]]"
-      ]
-    },
-    {
-      "id": "t9s3-sec",
-      "topicId": "t9",
-      "subtaskId": "t9s3",
-      "content": "RAG combina recuperação de documentos e geração condicionada ao contexto, permitindo uma abordagem mais precisa na produção de texto [[1:t9d1]]. Para garantir uma indexação eficiente, é essencial contar com embeddings vetoriais consistentes [[2:t9d2]]. A grounded generation, por sua vez, reduz a alucinação ao utilizar referências explícitas durante o processo de geração de texto [[3:t9d3]].\nEm resumo, a grounded generation é uma abordagem que combina a recuperação de documentos, geração condicionada ao contexto e referências explícitas para produzir textos mais precisos e reduzir a alucinação. Essa técnica é fundamental para garantir a qualidade e a relevância do conteúdo gerado em diferentes contextos.\n\nReferências: [[ref:1:t9d1]] [[ref:2:t9d2]] [[ref:3:t9d3]]",
-      "citations": [
-        "[[ref:1:t9d1]]",
-        "[[ref:2:t9d2]]",
-        "[[ref:3:t9d3]]"
-      ]
-    },
-    {
-      "id": "t10s1-sec",
-      "topicId": "t10",
-      "subtaskId": "t10s1",
-      "content": "Fine-tuning clássico ajusta todos os pesos do modelo base, buscando melhorar o desempenho geral. Por outro lado, LoRA introduz matrizes de baixa dimensão treináveis para preservar os pesos originais, permitindo ajustes mais específicos. Já os Adapters adicionam camadas leves entre blocos congelados, possibilitando a especialização em tarefas específicas.\nEm resumo, o fine-tuning clássico é uma abordagem ampla para ajustar os pesos do modelo base, enquanto LoRA e Adapters oferecem métodos mais refinados para preservar e especializar os pesos originais, respectivamente. Cada técnica tem suas vantagens e pode ser aplicada de acordo com as necessidades específicas de cada projeto de aprendizado de máquina.\n\nReferências: [[ref:1:t10d1]] [[ref:2:t10d2]] [[ref:3:t10d3]]",
-      "citations": [
-        "[[ref:1:t10d1]]",
-        "[[ref:2:t10d2]]",
-        "[[ref:3:t10d3]]"
-      ]
-    },
-    {
-      "id": "t10s2-sec",
-      "topicId": "t10",
-      "subtaskId": "t10s2",
-      "content": "LoRA é uma técnica de ajuste fino que difere do ajuste fino clássico. Enquanto o ajuste fino clássico ajusta todos os pesos do modelo base, LoRA injeta matrizes de baixa dimensão treináveis para preservar os pesos originais [[1:t10d1]] [[2:t10d2]]. Isso permite uma maior flexibilidade e eficiência no ajuste fino, pois as matrizes de baixa dimensão podem ser treinadas de forma independente.\nAlém disso, LoRA também pode ser combinado com a técnica de adapters. Adapters adicionam camadas leves entre blocos congelados do modelo para especialização, permitindo que partes específicas do modelo sejam ajustadas para tarefas específicas [[3:t10d3]]. Essa combinação de LoRA e adapters oferece uma abordagem mais granular e eficaz para o ajuste fino de modelos de aprendizado profundo.\nEm resumo, LoRA é uma técnica inovadora que permite ajustar modelos de forma mais eficiente e flexível, preservando os pesos originais e adicionando camadas especializadas quando necessário. Essa abordagem pode melhorar significativamente o desempenho e a adaptabilidade de modelos de aprendizado profundo em uma variedade de tarefas.\n\nReferências: [[ref:1:t10d1]] [[ref:2:t10d2]] [[ref:3:t10d3]]",
-      "citations": [
-        "[[ref:1:t10d1]]",
-        "[[ref:2:t10d2]]",
-        "[[ref:3:t10d3]]"
-      ]
-    },
-    {
-      "id": "t10s3-sec",
-      "topicId": "t10",
-      "subtaskId": "t10s3",
-      "content": "Adapters são camadas leves adicionadas entre blocos congelados de um modelo, permitindo a especialização sem alterar todos os pesos [[3:t10d3]]. Enquanto o fine-tuning ajusta todos os pesos do modelo base [[1:t10d1]] e LoRA injeta matrizes de baixa dimensão treináveis [[2:t10d2]], os adapters oferecem uma abordagem mais flexível para adaptar o modelo a tarefas específicas.\nEssas camadas adicionais podem ser treinadas de forma independente, o que facilita a personalização do modelo para diferentes conjuntos de dados ou domínios. Ao adicionar adapters, é possível preservar os pesos originais do modelo base e apenas ajustar as camadas especializadas, resultando em um processo mais eficiente e menos propenso a overfitting.\nEm resumo, os adapters são uma técnica eficaz para especializar modelos pré-treinados sem comprometer o conhecimento prévio adquirido durante o treinamento inicial. Eles oferecem uma maneira flexível e eficiente de adaptar modelos de linguagem para tarefas específicas, preservando a generalização e evitando o overfitting.\n\nReferências: [[ref:1:t10d1]] [[ref:2:t10d2]] [[ref:3:t10d3]]",
-      "citations": [
-        "[[ref:1:t10d1]]",
-        "[[ref:2:t10d2]]",
-        "[[ref:3:t10d3]]"
       ]
     }
   ],
-  "currentTopicId": "t10",
+  "currentTopicId": "t2",
   "currentSubtaskId": null,
   "currentQuestionId": null,
   "questionsQueue": [
     {
-      "id": "q_me9ji4kc6553",
-      "text": "ok",
-      "ts": 1755063516828,
+      "id": "q_mebulhv08754",
+      "text": "oi",
+      "ts": 1755203082156,
+      "from": "user",
       "route": "IGNORE",
       "needsRAG": false,
-      "from": "user",
-      "reason": "Não relacionado a nenhum tópico atual ou futuro"
+      "reason": "heuristic:score_-3|heuristic:score_-3|heuristic:score_-3"
     }
   ],
   "broadcastQueue": [],
   "answers": [
     {
-      "id": "ans_q_me9jgp4z4477",
-      "questionId": "q_me9jgp4z4477",
-      "answer": "Claro! Vou simplificar para você. O TF-IDF é uma técnica que dá mais importância a palavras que são frequentes em um documento, mas raras no conjunto de documentos. Já a tokenização divide o texto em unidades linguísticas básicas, como palavras. E os n-grams capturam sequências de n tokens consecutivos. Espero que agora tenha ficado mais claro para você. [[ref:1:t3d1]] [[ref:2:t3d2]] [[ref:3:t3d3]].\nReferências: [[ref:1:t3d1]] [[ref:2:t3d2]] [[ref:3:t3d3]]",
+      "id": "ans_q_mebulff3fa89",
+      "questionId": "q_mebulff3fa89",
+      "answer": "Qual é a importância do pipeline de Machine Learning no processo de desenvolvimento de modelos? O pipeline de Machine Learning é fundamental para garantir a qualidade e eficácia dos modelos desenvolvidos. Ele engloba etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy, garantindo que os dados sejam processados de forma adequada e que o modelo final seja capaz de aprender p",
       "mode": "chat_now",
-      "ts": 1755063455522
+      "ts": 1755203080236
     },
     {
-      "id": "ans_q_me9jhli706cb",
-      "questionId": "q_me9jhli706cb",
-      "answer": "A camada oculta em uma rede neural é uma camada intermediária entre a camada de entrada e a camada de saída, onde ocorre o processamento dos dados através de neurônios artificiais. Essa camada é responsável por aprender representações mais complexas e abstratas dos dados de entrada, permitindo a rede neural realizar tarefas mais sofisticadas. [[ref:1:t1d1]]\nReferências: [[ref:1:t1d1]] [[ref:2:t3d2]] [[ref:3:t6d2]]",
-      "mode": "pause",
-      "ts": 1755063493652
+      "id": "ans_q_mebulo806f2d",
+      "questionId": "q_mebulo806f2d",
+      "answer": "No aprendizado supervisionado, os algoritmos são treinados com dados rotulados, ou seja, com exemplos onde a resposta correta já é conhecida. Isso permite que o modelo aprenda a mapear entradas para saídas com base nos exemplos fornecidos durante o treinamento. Por outro lado, no aprendizado não supervisionado, os algoritmos são treinados com dados não rotulados, o que significa que o modelo preci",
+      "mode": "chat_now",
+      "ts": 1755203095210
+    },
+    {
+      "id": "ans_q_mebulrj15775",
+      "questionId": "q_mebulrj15775",
+      "answer": "No aprendizado supervisionado, os algoritmos são treinados com dados rotulados, ou seja, o modelo aprende a partir de exemplos em que a resposta correta já é conhecida. Já no aprendizado não supervisionado, os algoritmos são treinados com dados não rotulados, onde o objetivo é encontrar padrões e estruturas nos dados sem a necessidade de rótulos prévios [[ref:1:t1d2]]. Em projetos reais, a diferen",
+      "mode": "chat_now",
+      "ts": 1755203099187
     }
   ],
   "logs": [
@@ -386,30 +261,106 @@
       "subtask": "t1s1"
     },
     {
+      "node": "pick",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "checkQuestions",
       "action": "none"
+    },
+    {
+      "node": "checkQuestions",
+      "event": "node_telemetry",
+      "ms": 1,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "answerChatNow",
+      "action": "skip_no_current"
+    },
+    {
+      "node": "answerChatNow",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "draftLesson",
       "subtask": "t1s1"
     },
     {
+      "node": "draftNode",
+      "event": "node_telemetry",
+      "ms": 1,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "groundWithRag",
       "action": "llm_generate",
       "topic": "t1",
       "subtask": "t1s1"
+    },
+    {
+      "node": "groundNode",
+      "event": "node_telemetry",
+      "ms": 2641,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "finalizeSection",
       "lesson": "t1s1-sec"
     },
     {
+      "node": "finalizeSection",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "processPauseAnswers",
       "action": "skip"
     },
     {
+      "node": "processPauseAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "processEndTopicAnswers",
-      "action": "skip"
+      "action": "skip_delegated_to_sse"
+    },
+    {
+      "node": "processEndTopicAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "checkDone",
+      "event": "node_telemetry",
+      "ms": 1,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "pickSubtask",
@@ -417,30 +368,106 @@
       "subtask": "t1s2"
     },
     {
+      "node": "pick",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "checkQuestions",
       "action": "none"
+    },
+    {
+      "node": "checkQuestions",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "answerChatNow",
+      "action": "skip_no_current"
+    },
+    {
+      "node": "answerChatNow",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "draftLesson",
       "subtask": "t1s2"
     },
     {
+      "node": "draftNode",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "groundWithRag",
       "action": "llm_generate",
       "topic": "t1",
       "subtask": "t1s2"
+    },
+    {
+      "node": "groundNode",
+      "event": "node_telemetry",
+      "ms": 3158,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "finalizeSection",
       "lesson": "t1s2-sec"
     },
     {
+      "node": "finalizeSection",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "processPauseAnswers",
       "action": "skip"
     },
     {
+      "node": "processPauseAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "processEndTopicAnswers",
-      "action": "skip"
+      "action": "skip_delegated_to_sse"
+    },
+    {
+      "node": "processEndTopicAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "checkDone",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "pickSubtask",
@@ -448,12 +475,48 @@
       "subtask": "t1s3"
     },
     {
+      "node": "pick",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "checkQuestions",
       "action": "none"
     },
     {
+      "node": "checkQuestions",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "answerChatNow",
+      "action": "skip_no_current"
+    },
+    {
+      "node": "answerChatNow",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "draftLesson",
       "subtask": "t1s3"
+    },
+    {
+      "node": "draftNode",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "groundWithRag",
@@ -462,16 +525,56 @@
       "subtask": "t1s3"
     },
     {
+      "node": "groundNode",
+      "event": "node_telemetry",
+      "ms": 2386,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "finalizeSection",
       "lesson": "t1s3-sec"
+    },
+    {
+      "node": "finalizeSection",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "processPauseAnswers",
       "action": "skip"
     },
     {
+      "node": "processPauseAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "processEndTopicAnswers",
-      "action": "skip"
+      "action": "skip_delegated_to_sse"
+    },
+    {
+      "node": "processEndTopicAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "checkDone",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "pickSubtask",
@@ -479,16 +582,92 @@
       "topic": "t1"
     },
     {
+      "node": "pick",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "checkQuestions",
       "action": "none"
+    },
+    {
+      "node": "checkQuestions",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "answerChatNow",
+      "action": "skip_no_current"
+    },
+    {
+      "node": "answerChatNow",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "draftNode",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "groundNode",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "finalizeSection",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "processPauseAnswers",
       "action": "skip"
     },
     {
+      "node": "processPauseAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "processEndTopicAnswers",
-      "action": "skip"
+      "action": "skip_delegated_to_sse"
+    },
+    {
+      "node": "processEndTopicAnswers",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "checkDone",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "pickSubtask",
@@ -496,981 +675,111 @@
       "subtask": "t2s1"
     },
     {
+      "node": "pick",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "checkQuestions",
       "action": "none"
+    },
+    {
+      "node": "checkQuestions",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "answerChatNow",
+      "action": "skip_no_current"
+    },
+    {
+      "node": "answerChatNow",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "draftLesson",
       "subtask": "t2s1"
     },
     {
+      "node": "draftNode",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
       "node": "groundWithRag",
       "action": "llm_generate",
       "topic": "t2",
       "subtask": "t2s1"
+    },
+    {
+      "node": "groundNode",
+      "event": "node_telemetry",
+      "ms": 2133,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "finalizeSection",
       "lesson": "t2s1-sec"
     },
     {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t2",
-      "subtask": "t2s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t2s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t2",
-      "subtask": "t2s2"
-    },
-    {
       "node": "finalizeSection",
-      "lesson": "t2s2-sec"
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "processPauseAnswers",
       "action": "skip"
     },
     {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t2",
-      "subtask": "t2s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t2s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t2",
-      "subtask": "t2s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t2s3-sec"
-    },
-    {
       "node": "processPauseAnswers",
-      "action": "skip"
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     },
     {
       "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
+      "action": "skip_delegated_to_sse"
     },
     {
       "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t3",
-      "subtask": "t3s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t3s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t3",
-      "subtask": "t3s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t3s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t3",
-      "subtask": "t3s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t3s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t3",
-      "subtask": "t3s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t3s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t3",
-      "subtask": "t3s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "answer_now",
-      "q": "q_me9jgp4z4477"
-    },
-    {
-      "node": "answerChatNow",
-      "action": "answered",
-      "qid": "q_me9jgp4z4477"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t3s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t3",
-      "subtask": "t3s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t3s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t4",
-      "subtask": "t4s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t4s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t4",
-      "subtask": "t4s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t4s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t4",
-      "subtask": "t4s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t4s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t4",
-      "subtask": "t4s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t4s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t4",
-      "subtask": "t4s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t4s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t4",
-      "subtask": "t4s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t4s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t4"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t5",
-      "subtask": "t5s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t5s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t5",
-      "subtask": "t5s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t5s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t5",
-      "subtask": "t5s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t5s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t5",
-      "subtask": "t5s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t5s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t5",
-      "subtask": "t5s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t5s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t5",
-      "subtask": "t5s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t5s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t5"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t6",
-      "subtask": "t6s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t6s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t6",
-      "subtask": "t6s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t6s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t6",
-      "subtask": "t6s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t6s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t6",
-      "subtask": "t6s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t6s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t6",
-      "subtask": "t6s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t6s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t6",
-      "subtask": "t6s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t6s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t6"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t7",
-      "subtask": "t7s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t7s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t7",
-      "subtask": "t7s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t7s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t7",
-      "subtask": "t7s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t7s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t7",
-      "subtask": "t7s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t7s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t7",
-      "subtask": "t7s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t7s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t7",
-      "subtask": "t7s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t7s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t7"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "count": 1
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t8",
-      "subtask": "t8s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t8s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t8",
-      "subtask": "t8s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t8s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t8",
-      "subtask": "t8s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t8s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t8",
-      "subtask": "t8s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t8s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t8",
-      "subtask": "t8s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t8s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t8",
-      "subtask": "t8s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t8s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t8"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t9",
-      "subtask": "t9s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t9s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t9",
-      "subtask": "t9s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t9s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t9",
-      "subtask": "t9s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t9s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t9",
-      "subtask": "t9s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t9s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t9",
-      "subtask": "t9s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t9s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t9",
-      "subtask": "t9s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t9s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t9"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t10",
-      "subtask": "t10s1"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t10s1"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t10",
-      "subtask": "t10s1"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t10s1-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t10",
-      "subtask": "t10s2"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t10s2"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t10",
-      "subtask": "t10s2"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t10s2-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t10",
-      "subtask": "t10s3"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t10s3"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t10",
-      "subtask": "t10s3"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t10s3-sec"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip"
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
+    },
+    {
+      "node": "checkDone",
+      "event": "node_telemetry",
+      "ms": 0,
+      "currentQuestionId": null,
+      "sessionId": "sess_mebul3e7",
+      "traceId": "sess_mebul3e7_t0"
     }
   ],
   "done": false,
   "draft": "",
-  "grounded": ""
+  "grounded": "",
+  "sessionId": "sess_mebul3e7",
+  "traceId": "sess_mebul3e7_t0"
 }

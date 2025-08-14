@@ -11,6 +11,9 @@ h2{margin:0 0 16px;font-size:20px;font-weight:600}
 #bar{height:100%;width:0;background:linear-gradient(90deg,#2563eb 0%,#3b82f6 50%,#60a5fa 100%);transition:width 0.8s cubic-bezier(0.4,0.0,0.2,1);position:relative}
 #bar::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.2) 50%,transparent 100%);animation:shimmer 2s infinite}
 #percentage{position:absolute;top:-18px;left:4px;font-size:10px;font-weight:600;color:#e4e7eb}
+#layout + .ondemand-controls, .ondemand-controls{margin:8px 0 12px;display:flex;gap:8px}
+.ondemand-controls button{background:#0d9488}
+.ondemand-controls button:hover:not(:disabled){background:#0f766e}
 #layout{flex:1;display:flex;gap:16px;min-height:0}
 #content{flex:2;background:#1c2128;border:1px solid #2d333b;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
 #chatPanel{flex:1;display:flex;flex-direction:column;background:#1c2128;border:1px solid #2d333b;border-radius:12px;padding:12px;min-width:280px;max-width:380px}
@@ -23,13 +26,21 @@ h2{margin:0 0 16px;font-size:20px;font-weight:600}
 #answers .answer.pause{border-left:3px solid #f59e0b}
 #answers .answer.end_topic{border-left:3px solid #ec4899}
 #pending h4{margin:12px 0 4px;font-size:11px;letter-spacing:.5px;text-transform:uppercase;opacity:.7}
-#pendingList{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:12px}
-#pendingList li{background:#242e38;padding:6px 8px;border-radius:6px;display:flex;flex-direction:column;gap:4px}
-#pendingList li .tag{font-size:10px;padding:2px 6px;border-radius:4px;background:#374151;display:inline-block;margin-right:4px}
-#pendingList li .route-CHAT_NOW{background:#065f46}
-#pendingList li .route-PAUSE{background:#4b5563}
-#pendingList li .route-END_TOPIC{background:#7e22ce}
-#pendingList li small{opacity:0.55}
+.pendingList{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:12px}
+.pendingList li{background:#242e38;padding:6px 8px;border-radius:6px;display:flex;flex-direction:column;gap:4px;position:relative}
+.pendingList li.waiting-pause{border-left:3px solid #f59e0b}
+.pendingList li.waiting-end{border-left:3px solid #ec4899}
+.pendingList li .tag{font-size:10px;padding:2px 6px;border-radius:4px;background:#374151;display:inline-block;margin-right:4px}
+.pendingList li .route-CHAT_NOW{background:#065f46}
+.pendingList li .route-PAUSE{background:#4b5563}
+.pendingList li .route-END_TOPIC{background:#7e22ce}
+.pendingList li .route-FINAL{background:#991b1b}
+.pendingList li .route-NOTE{background:#0369a1}
+.pendingList li small{opacity:0.55}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;background:#242e38;padding:4px 6px;border-radius:6px;opacity:.8}
+.pending-group h5{margin:8px 0 4px;font-size:11px;display:flex;align-items:center;gap:4px;letter-spacing:.5px;text-transform:uppercase;opacity:.75}
+.pending-group .count{font-weight:600;color:#60a5fa}
 #chatForm{margin-top:8px;display:flex;flex-direction:column;gap:8px}
 #chatForm .speed-label{margin-left:auto;font-size:11px;display:flex;align-items:center;gap:6px;color:#94a3b8}
 #chatForm .speed-label input{width:90px}
@@ -52,3 +63,19 @@ h2{margin:0 0 16px;font-size:20px;font-weight:600}
 ::-webkit-scrollbar-track{background:#0f1115}
 ::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:#484f58}
+
+/* --- Enhanced Chat Controls & Groups --- */
+.chat-controls{display:flex;gap:8px;align-items:center;margin:4px 0 8px;flex-wrap:wrap}
+.chat-controls button{background:#1e293b;color:#fff;border:1px solid #334155;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:12px}
+.chat-controls button:hover{background:#334155}
+.chat-controls label{font-size:12px;display:flex;align-items:center;gap:4px}
+.pending-group.collapsed ul{display:none}
+.group-header{cursor:pointer;-webkit-user-select:none;user-select:none;position:relative;padding-right:14px}
+.group-header::after{content:"";position:absolute;top:50%;right:2px;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #64748b;transform:translateY(-50%) rotate(0deg);transition:transform .18s}
+.collapsed > .group-header::after{transform:translateY(-50%) rotate(-90deg)}
+.answer.new{animation:pulseNew 2s ease-in-out 1;box-shadow:0 0 0 2px #0ea5e9 inset}
+/* Placeholder (avisos de futura resposta) */
+.answer.placeholder{opacity:0.65;font-style:italic;border-left:3px dashed #475569}
+@keyframes pulseNew{0%{background:#242e38}30%{background:#103245}100%{background:#242e38}}
+.elapsed{font-size:10px;color:#64748b;margin-left:6px}
+.hiddenImmediate .answer.route-CHAT_NOW{display:none}

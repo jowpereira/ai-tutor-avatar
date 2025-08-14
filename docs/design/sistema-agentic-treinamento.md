@@ -70,7 +70,7 @@ Um pipeline agentic que combina:
 - **Trigger**: Disparado via chat conforme sinais da turma
 
 #### 2.3 Agente Julgador (Prioritizer)
-- **Função**: Classificar mensagens em `CHAT_NOW`, `QUEUE_BROADCAST` ou `IGNORE/DEFER`
+- **Função**: Classificar mensagens em `CHAT_NOW`, `PAUSE`, `END_TOPIC` ou `IGNORE`
 - **Inteligência**: Sinaliza necessidade de grounding RAG (`needsRAG=true`)
 - **Critérios**: Bloqueio, alinhamento, tempo, recorrência, segurança
 
@@ -136,7 +136,8 @@ flowchart TD
   %% Canal paralelo de chat
   ChatIn[Ingest Message] --> Judge[judgeMessage]
   Judge -->|CHAT_NOW| ChatAns[answerChatNow]
-  Judge -->|QUEUE_BROADCAST| Enqueue[enqueueBroadcast]
+  Judge -->|PAUSE| EnqueuePause[enqueuePause]
+  Judge -->|END_TOPIC| EnqueueEnd[enqueueEndTopic]
   Judge -->|IGNORE| Sink[descartar/adiar]
 
   ChatAns --> Teach
@@ -418,7 +419,7 @@ async function ingestMessage(state: TrainingStateT) {
 }
 
 async function judgeMessage(state: TrainingStateT) {
-  // Classifica: CHAT_NOW | QUEUE_BROADCAST | IGNORE
+  // Classifica: CHAT_NOW | PAUSE | END_TOPIC | IGNORE
   // Define needsRAG
 }
 
@@ -484,10 +485,10 @@ async function judgeMessage(msg: Message, state: TrainingStateT) {
   }
   
   if (scoreGeneral > 0.6) {
-    return { 
-      route: "QUEUE_BROADCAST", 
-      priority: computePriority(features) 
-    };
+    if (features.isSummaryRequest) {
+      return { route: "END_TOPIC", priority: computePriority(features) };
+    }
+    return { route: "PAUSE", priority: computePriority(features) };
   }
   
   return { route: "IGNORE" };
@@ -659,8 +660,9 @@ app.post('/events', async (req, res) => {
 | Contexto | Julgador | RAG? | Saída |
 |----------|----------|------|-------|
 | Definição curta, conceito básico | CHAT_NOW | Opcional | Mensagem curta no chat |
-| Dúvida recorrente, útil à turma | QUEUE_BROADCAST | **Sim** | Resposta em bloco com citações |
-| Fato numérico/política/API | CHAT_NOW ou QUEUE_BROADCAST | **Sim** | Resposta com snippet + fonte |
+| Dúvida recorrente, útil à turma | PAUSE | **Sim** | Resposta agrupada na próxima pausa |
+| Pedido de resumo/fechamento de seção | END_TOPIC | **Sim** | Resposta ao final do tópico |
+| Fato numérico/política/API | CHAT_NOW ou PAUSE | **Sim** | Resposta curta ou adiada com fonte |
 | Pergunta fora de escopo | IGNORE/DEFER | Não | Indicar trilha/FAQ |
 | Trecho de aula que exige evidência | — | **Sim (Treinador)** | Conteúdo da seção com refs |
 
@@ -1345,9 +1347,9 @@ const JUDGE_THRESHOLD_TEST: ABTest = {
 
 **Fluxo:**
 1. **Usuário**: "BM25 vs Embeddings neste contexto?"
-2. **Julgador**: `QUEUE_BROADCAST` com `needsRAG=true`
+2. **Julgador**: `PAUSE` com `needsRAG=true`
 3. **Sistema**: Continua aula, pergunta enfileirada
-4. **Pausa natural**: `broadcastAnswers` acionado
+4. **Pausa natural**: processamento de respostas de pausa acionado
 5. **RAG**: Busca comparativos, gera quadro
 6. **Broadcast**: Resposta estruturada com citações
 7. **Anexo**: Resumo adicionado às notas da seção
@@ -1358,7 +1360,7 @@ const JUDGE_THRESHOLD_TEST: ABTest = {
 
 **Fluxo:**
 1. **Usuário**: "Não entendi o último exemplo, está quebrado"
-2. **Julgador**: `URGENT_BROADCAST` (bloqueio detectado)
+2. **Julgador**: `CHAT_NOW` (bloqueio detectado)
 3. **Preempção**: Pausa imediata da geração
 4. **Verificação**: Agente verifica exemplo mencionado
 5. **Correção**: Se necessário, corrige e regenera
@@ -1384,7 +1386,7 @@ const JUDGE_THRESHOLD_TEST: ABTest = {
 
 **Fluxo:**
 1. **Usuário**: "Como integrar com a API XYZ da empresa?"
-2. **Julgador**: `QUEUE_BROADCAST` com `needsRAG=true`
+2. **Julgador**: `PAUSE` com `needsRAG=true`
 3. **RAG**: Busca no corpus, zero hits relevantes
 4. **Fallback**: "Não encontrei informações sobre API XYZ no corpus atual"
 5. **Sugestão**: "Recomendo consultar [docs internos] ou [contato técnico]"

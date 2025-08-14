@@ -15,6 +15,8 @@ export const QuestionSchema = z.object({
   needsRAG: z.boolean().default(false),
   priority: z.number().default(0),
   createdAt: z.number(),
+  route: z.string().optional(),
+  reason: z.string().optional(),
 });
 
 export const LessonSectionSchema = z.object({

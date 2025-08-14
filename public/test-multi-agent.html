@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Agent Coordinator Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .response {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 3px;
+            white-space: pre-wrap;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🤖 Multi-Agent Coordinator Test Dashboard</h1>
+    
+    <div class="test-section">
+        <h3>📤 Enviar Mensagem</h3>
+        <input type="text" id="messageInput" placeholder="Digite sua mensagem aqui..." value="Como funciona o sistema de aprendizado?">
+        <button onclick="sendMessage()">Enviar (Multi-Agent)</button>
+        <button onclick="sendLegacyMessage()">Enviar (Legacy)</button>
+    </div>
+
+    <div class="test-section">
+        <h3>📊 Status dos Sistemas</h3>
+        <button onclick="checkMultiAgentState()">Multi-Agent State</button>
+        <button onclick="checkLegacyState()">Legacy State</button>
+        <button onclick="checkHealth()">Health Check</button>
+    </div>
+
+    <div id="results">
+        <h3>📋 Resultados</h3>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:3001';
+        
+        function addResult(title, data, isSuccess = true) {
+            const output = document.getElementById('output');
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `response ${isSuccess ? 'success' : 'error'}`;
+            
+            const timestamp = new Date().toLocaleTimeString();
+            resultDiv.innerHTML = `
+                <strong>[${timestamp}] ${title}</strong><br>
+                ${typeof data === 'object' ? JSON.stringify(data, null, 2) : data}
+            `;
+            
+            output.insertBefore(resultDiv, output.firstChild);
+        }
+
+        async function sendMessage() {
+            const message = document.getElementById('messageInput').value;
+            if (!message.trim()) {
+                addResult('❌ Erro', 'Mensagem não pode estar vazia', false);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/chat/multi-agent`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: message,
+                        from: 'test_dashboard'
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                addResult('🚀 Multi-Agent Response', result, true);
+                
+                // Se houve respostas imediatas, destacar
+                if (result.result?.immediateResponses?.length > 0) {
+                    addResult('💬 Respostas Imediatas', result.result.immediateResponses, true);
+                }
+                
+            } catch (error) {
+                addResult('❌ Multi-Agent Error', error.message, false);
+            }
+        }
+
+        async function sendLegacyMessage() {
+            const message = document.getElementById('messageInput').value;
+            if (!message.trim()) {
+                addResult('❌ Erro', 'Mensagem não pode estar vazia', false);
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/chat/send`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        text: message,
+                        from: 'test_dashboard'
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                addResult('📞 Legacy Response', result, true);
+                
+            } catch (error) {
+                addResult('❌ Legacy Error', error.message, false);
+            }
+        }
+
+        async function checkMultiAgentState() {
+            try {
+                const response = await fetch(`${API_BASE}/chat/multi-agent/state`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                addResult('📊 Multi-Agent State', result, true);
+                
+            } catch (error) {
+                addResult('❌ Multi-Agent State Error', error.message, false);
+            }
+        }
+
+        async function checkLegacyState() {
+            try {
+                const response = await fetch(`${API_BASE}/chat/state`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                addResult('📞 Legacy State', result, true);
+                
+            } catch (error) {
+                addResult('❌ Legacy State Error', error.message, false);
+            }
+        }
+
+        async function checkHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                addResult('✅ Health Check', result, true);
+                
+            } catch (error) {
+                addResult('❌ Health Check Error', error.message, false);
+            }
+        }
+
+        // Auto-check health on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkHealth();
+            addResult('🎯 Dashboard Ready', 'Multi-Agent Coordinator Test Dashboard inicializado', true);
+        });
+    </script>
+</body>
+</html>

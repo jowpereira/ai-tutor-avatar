@@ -31,29 +31,30 @@ Tópicos futuros potenciais:\n- ${futureList || 'Nenhum'}
 Pergunta: "${question}"
 JSON:`;
     let raw = '';
-    try {
-      const resp = await chatModel.invoke(prompt);
-      raw = (resp?.content as string) || '';
-      const jsonMatch = raw.match(/\{[\s\S]*\}$/);
-      const parsed = JSON.parse(jsonMatch ? jsonMatch[0] : raw);
-      return {
-        topicRelevance: parsed.topicRelevance || 'CURRENT',
-        route: parsed.route || 'PAUSE',
-        needsRAG: !!parsed.needsRAG,
-        reason: parsed.reason || 'llm'
-      } as { topicRelevance: string; route: string; needsRAG: boolean; reason: string };
-    } catch (e) {
-      logger.warn({ event: 'rag.classify_fallback', error: (e as Error).message, raw });
-      const lower = question.toLowerCase();
-      const endHint = /(resumo|conclus|vis[aã]o geral|overview|final)/i.test(lower);
-      const short = question.length < 90;
-      return {
-        topicRelevance: 'CURRENT',
-        route: endHint ? 'END_TOPIC' : (short ? 'CHAT_NOW' : 'PAUSE'),
-        needsRAG: /(compar|diferenç|versus|vs|por que|porque|fonte|refer|estat|n[úu]mer)/i.test(lower),
-        reason: 'fallback_heuristic'
-      };
-    }
+    const resp = await chatModel.invoke(prompt);
+    raw = (resp?.content as string) || '';
+    const jsonMatch = raw.match(/\{[\s\S]*\}$/);
+    const parsed = JSON.parse(jsonMatch ? jsonMatch[0] : raw);
+    
+    return {
+      topicRelevance: parsed.topicRelevance || 'CURRENT',
+      route: parsed.route || 'PAUSE',
+      needsRAG: !!parsed.needsRAG,
+      reason: parsed.reason || 'llm'
+    } as { topicRelevance: string; route: string; needsRAG: boolean; reason: string };
+  }
+  async classifyIrrelevance(question: string) {
+    if (!chatModel) throw new Error('LLM não inicializado');
+    const prompt = `Determine se o texto do usuário deve ser tratado como IRRELEVANTE para um curso técnico atual.
+Regras IRRELEVANTE: vazio, só pontuação, só emoji, agradecimento curto sem pergunta, fora de escopo claro, spam.
+Se for pergunta técnica ou potencialmente útil => RELEVANTE.
+Retorne JSON: {"irrelevant":true|false, "confidence":0-1, "rationale":"string curta"}
+Texto: "${question}"\nJSON:`;
+    const resp = await chatModel.invoke(prompt);
+    const raw = (resp?.content as string) || '{}';
+    const match = raw.match(/\{[\s\S]*\}$/);
+    const parsed = JSON.parse(match ? match[0] : raw);
+    return { irrelevant: !!parsed.irrelevant, confidence: typeof parsed.confidence === 'number' ? parsed.confidence : 0.5, rationale: parsed.rationale || 'llm' } as { irrelevant: boolean; confidence: number; rationale: string };
   }
   async retrieve(query: string, topicId?: string) {
     await loadRAGStore();

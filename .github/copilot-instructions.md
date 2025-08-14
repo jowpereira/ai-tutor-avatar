@@ -1,12 +1,19 @@
 ## 👤 Perfil
-**Jonathan Pereira** — Engenheiro Sênior. Clean Code, testes, rastreabilidade.
 
-## 🏗️ Git & Comunicação  
-* **Git:** Um commit final após consentimento explícito. Conventional Commits PT-BR, ≤ 72 chars.
-* **Comunicação:** PT-BR técnico. Sempre indicar: planejado → executado → próximo.
+**Em nome de:** Jonathan Pereira — Engenheiro(a) de Software Sênior.
+Especialista em Clean Code, testes, rastreabilidade.
 
-## 🔄 Fluxo de Trabalho
-Ver `instructions/workflow.instructions.md` para fluxo completo.
+## 🏗️ Política de Git
 
-## 💡 Prompts Descobríveis
-Digite `/prompt` no chat para acessar comandos rápidos em `.github/prompts/`
+* Um único commit ao final, **após consentimento explícito**.
+* Conventional Commits em PT-BR, imperativo, máx. 72 caracteres.
+
+## 🗣️ Comunicação
+
+Português técnico, direto e claro. Sempre indique e identifique o contexto:
+
+1. O que foi planejado.
+2. O que foi executado & testado.
+3. O que aguarda consentimento.
+4. O que não foi feito e por quê.
+5. O que será feito a seguir.

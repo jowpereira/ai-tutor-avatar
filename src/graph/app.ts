@@ -3,11 +3,9 @@ import { StateGraph, Annotation, START, END } from '@langchain/langgraph';
 import { logger } from '../utils/observability.js';
 import { TrainingState, initialState } from './state.js';
 import { ingestMessage } from './nodes/ingestMessage.js';
-import { ingestTodo } from './nodes/ingestTodo.js';
 import { judgeMessage } from './nodes/judgeMessage.js';
 import { answerChatNow } from './nodes/answerChatNow.js';
-import { enqueueBroadcast } from './nodes/enqueueBroadcast.js';
-import { broadcastAnswers } from './nodes/broadcastAnswers.js';
+// broadcastAnswers removido (fluxo legado substituído por lessonGraph com process*Answers)
 
 // Full training state definition following LangGraph 0.4.4 patterns
 const StateAnnotation = Annotation.Root({
@@ -50,55 +48,27 @@ const StateAnnotation = Annotation.Root({
   logs: Annotation<TrainingState['logs']>({
     value: (left: TrainingState['logs'], right: TrainingState['logs']) => right !== undefined ? [...(left || []), ...(right || [])] : left,
     default: () => initialState.logs
-  }),
-  // Legacy compatibility for tests
-  message: Annotation<string>({
-    value: (left, right) => right || left,
-    default: () => ""
-  }),
-  count: Annotation<number>({
-    value: (left, right) => right !== undefined ? right : left,
-    default: () => 0
   })
 });
 
-// Node adapters for LangGraph 0.4.4 compatibility
-const ingestMessageNode = (state: typeof StateAnnotation.State, config?: any) => {
-  // Legacy message format support
-  if (state.message && !state.questionsQueue?.length) {
-    const messageInput = { participantId: 'default', content: state.message };
-    const result = ingestMessage(state as any, { message: messageInput });
-    return { ...result, message: `Ingested: ${state.message}`, count: (state.count || 0) + 1 };
-  }
-  return ingestMessage(state as any);
-};
+// Node adapters for LangGraph 0.4.4 compatibility  
+const ingestMessageNode = (state: typeof StateAnnotation.State) => ingestMessage(state as any);
 
 const judgeMessageNode = (state: typeof StateAnnotation.State) => {
   const result = judgeMessage(state as any);
-  return { ...result, count: (state.count || 0) + 1 };
+  return result;
 };
 
 const answerChatNowNode = (state: typeof StateAnnotation.State) => {
   const result = answerChatNow(state as any);
-  return { ...result, count: (state.count || 0) + 1 };
-};
-
-const broadcastNode = (state: typeof StateAnnotation.State) => {
-  // Handle both enqueueBroadcast and broadcastAnswers
-  if (state.route === 'QUEUE_BROADCAST' && state.questionsQueue?.length) {
-    const enqueueResult = enqueueBroadcast(state as any);
-    const broadcastResult = broadcastAnswers({ ...state, ...enqueueResult } as any);
-    return { ...enqueueResult, ...broadcastResult, count: (state.count || 0) + 1 };
-  }
-  return { count: (state.count || 0) };
+  return result;
 };
 
 // Simple completion node
 const finalize = (state: typeof StateAnnotation.State) => {
   logger.info({ event: 'graph_finalize', route: state.route, questionsCount: state.questionsQueue?.length });
   return {
-    message: `Final: ${state.message || 'Processed'}`,
-    count: (state.count || 0) + 1
+    route: 'completed'
   };
 };
 

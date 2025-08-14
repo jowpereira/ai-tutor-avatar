@@ -42,7 +42,7 @@
 ## Fase 6 - Testes
 - [ ] Unit: cada nó
 - [ ] Integration: CHAT_NOW fluxo
-- [ ] Integration: QUEUE_BROADCAST fluxo
+- [ ] Integration: PAUSE / END_TOPIC fluxo
 - [ ] Integration: needsRAG true/false
 - [ ] Cobertura >= 70%
 

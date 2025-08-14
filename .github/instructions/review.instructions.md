@@ -1,14 +1,10 @@
 ---
 applyTo: "**/*"
-priority: 75
+
 mode: reviewSelection
 ---
+• Aponte ausência de testes, side-effects não documentados e
 
-**ANÁLISE OBRIGATÓRIA:**
-• **Testes:** Ausência de testes, cobertura < 80%
-• **Segurança:** Vulnerabilidades, inputs não validados
-• **Performance:** Complexidade > 15, N+1 queries, memory leaks
-• **Manutenibilidade:** Code smells, duplicação, acoplamento alto
-• **Padrões:** Violações de convenções do projeto
+  complexidade ciclomática > 15.
 
-**SAÍDA:** Lista priorizada de melhorias + refatorações sucintas
+• Sugira refatorações sucintas.

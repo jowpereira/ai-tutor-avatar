@@ -3,8 +3,8 @@ import { initialState } from '../src/graph/state.js';
 import { ingestMessage } from '../src/graph/nodes/ingestMessage.js';
 import { judgeMessage } from '../src/graph/nodes/judgeMessage.js';
 import { answerChatNow } from '../src/graph/nodes/answerChatNow.js';
-import { enqueueBroadcast } from '../src/graph/nodes/enqueueBroadcast.js';
-import { broadcastAnswers } from '../src/graph/nodes/broadcastAnswers.js';
+// enqueueBroadcast não utilizado neste teste após remoção de broadcast
+// broadcastAnswers removido do core
 
 describe('Integration flows', () => {
   it('CHAT_NOW flow completes', async () => {
@@ -15,14 +15,5 @@ describe('Integration flows', () => {
     expect((patch.answered || []).length).toBeGreaterThanOrEqual(0);
   });
 
-  it('QUEUE_BROADCAST flow triggers broadcast', async () => {
-    let state = { ...initialState };
-    for (let i = 0; i < 4; i++) {
-      state = { ...state, ...ingestMessage(state, { message: { participantId: 'u1', content: 'Explique conceito complexo ' + i } }) };
-      state = { ...state, ...judgeMessage(state) };
-    }
-    state = { ...state, ...enqueueBroadcast(state) };
-    const patch = await broadcastAnswers(state);
-    expect(patch.broadcastQueue?.length).toBe(0);
-  });
+  // Fluxo QUEUE_BROADCAST original removido (broadcastAnswers descontinuado)
 });
