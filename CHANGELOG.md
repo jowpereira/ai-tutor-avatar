@@ -1,5 +1,21 @@
 # Changelog
 
+## [2025-08-15] - Integração Azure Avatar (Fase A: Design)
+
+### ✅ Concluído
+- Documento de entendimento dos samples Azure (WebRTC Avatar) produzido (`docs/AVATAR_INTEGRATION_DESIGN.md`).
+- Definido strategy pattern (TTSStrategy/WebRTCStrategy) e endpoints planejados (`/avatar/session/start`).
+- Mapeados riscos, métricas, fallback, variáveis de ambiente e roadmap de fases (A–D).
+- Plano ativo concluído e registrado em memória.
+
+### 📌 Escopo
+- Nenhuma alteração funcional em runtime: apenas documentação e preparação arquitetural.
+- Mantido modo TTS existente como fallback.
+
+### 🔜 Próximo Passo
+- Implementar endpoint proxy relay + WebRTCStrategy atrás de feature flag `AVATAR_MODE`.
+
+
 ## [2025-01-15] - Multi-Agent Architecture Implementation
 
 ### ✅ Concluído

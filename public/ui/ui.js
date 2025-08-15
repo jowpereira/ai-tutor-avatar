@@ -1,4 +1,6 @@
 /* global document window EventSource */
+import { createAvatar } from '/ui/avatarPlayer.js';
+import { WebRTCStrategy, AvatarController } from '/ui/avatarWebRTC.js';
 // Estado global
 let totalPlanned = 0, received = 0, completed = 0;
 let source = null; // EventSource
@@ -11,6 +13,12 @@ let logBuffer = [];
 let pendingInsertQueue = [];
 // Rastreamento de placeholders (ex: end_topic pendente) para atualizações incrementais
 let placeholderMap = { end_topic: null };
+let avatarPlayer = null; let avatarEnabled = true; let avatarReady = false; let avatarController = null;
+const avatarShell = document.getElementById('avatarShell');
+const avatarToggle = document.getElementById('avatarToggle');
+const avatarMute = document.getElementById('avatarMute');
+const avatarVideoEl = document.getElementById('avatarVideo');
+const avatarCaptionsEl = document.getElementById('avatarCaptions');
 // (modo token removido)
 
 // Elementos
@@ -212,6 +220,10 @@ function processQueue(){
 }
 
 function addLesson(lesson){ received++; lessonQueue.push({ lesson }); processQueue(); }
+function narrateLesson(lesson){
+  if(!avatarEnabled || !avatarPlayer || !avatarReady) return;
+  avatarPlayer.enqueueLesson(lesson);
+}
 
 async function initCourse(){
   try {
@@ -220,15 +232,70 @@ async function initCourse(){
     if(pulseBtn) pulseBtn.disabled=true;
     statusEl.textContent='🔄 Inicializando...'; headerEl.textContent='🎯 Preparando curso...'; streamDiv.innerHTML='';
     totalPlanned=0; received=0; completed=0; pendingDone=false; activeTyping=0; lessonQueue=[]; updateBar();
-    const res = await fetch('/events',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({type:'build_course'})});
+  const res = await fetch('/events',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({type:'build_course'})});
     if(!res.ok) throw new Error('Falha ao inicializar');
     const js = await res.json();
     totalPlanned = (js.result?.todo?.[0]?.subtasks?.length || 0) + (js.result?.todo?.slice(1)?.reduce((a,t)=>a+(t.subtasks?.length||0),0) || 0);
     statusEl.textContent='✅ Pronto para stream'; headerEl.textContent='📋 Curso carregado ('+totalPlanned+' lições)';
   streamBtn.disabled=false; if(nextLessonBtn) nextLessonBtn.disabled=false; if(pulseBtn) pulseBtn.disabled=false; appendText('🎓 Sistema pronto! Total de '+totalPlanned+' lições.\n\n');
+    // Inicializa avatar controller (lazy apenas após build curso)
+    try {
+      avatarController = new AvatarController({
+        mode: (window.AVATAR_MODE || 'auto'),
+        createTTS: async () => { 
+          const p = await createAvatar(); 
+          avatarPlayer = p; 
+          avatarReady = true; 
+          // Bind TTS events to captions
+          p.on('playing', (ev) => { 
+            if(avatarCaptionsEl && ev.chunkId) {
+              // Extract text from current queue item for basic caption display
+              const currentText = p.queue[0]?.text || 'Reproduzindo áudio...';
+              avatarCaptionsEl.textContent = currentText.slice(0, 80) + (currentText.length > 80 ? '...' : '');
+            }
+          });
+          p.on('chunkComplete', () => { 
+            if(avatarCaptionsEl) avatarCaptionsEl.textContent = ''; 
+          });
+          return p; 
+        },
+        createWebRTC: async () => {
+          const strat = new WebRTCStrategy({
+            fetchAuthToken: async () => { const r = await fetch('/avatar/token',{method:'POST'}); if(!r.ok) throw new Error('token_fail'); return await r.json(); },
+            startSession: async () => { const r = await fetch('/avatar/session/start',{method:'POST'}); if(!r.ok) throw new Error('session_fail'); return await r.json(); },
+            voice: 'pt-BR-AntonioNeural',
+            character: (window.AVATAR_CHARACTER||'lisa'),
+            style: (window.AVATAR_STYLE||'casual-sitting'),
+            videoEl: avatarVideoEl
+          });
+          strat.on('ready',()=>{ avatarPlayer = strat; avatarReady = true; });
+          strat.on('caption', ev => { if(avatarCaptionsEl){ avatarCaptionsEl.textContent = ev.text; } });
+          strat.on('error',(e)=>{ console.warn('[avatar-webrtc-error]', e); });
+          await strat.init();
+          return strat;
+        }
+      });
+      const modeInfo = await avatarController.init();
+      console.debug('[avatar-controller] mode', modeInfo);
+      
+      // Always show avatar container after successful init (any mode)
+      if(avatarShell){ 
+        avatarShell.style.display='flex'; 
+        document.body.classList.add('with-avatar'); 
+        console.debug('[avatar] container visible, mode:', modeInfo.mode);
+      }
+    } catch(e){ 
+      console.warn('[avatar-controller-init-fail]', e); 
+      // Even if avatar fails, show empty container for consistent UI
+      if(avatarShell){ 
+        avatarShell.style.display='flex'; 
+        document.body.classList.add('with-avatar'); 
+      }
+    }
   } catch(e){
     statusEl.textContent='❌ Erro ao iniciar'; headerEl.textContent='⚠️ Falha na preparação'; startBtn.disabled=false;
     appendText('\n❌ '+(e.message||e.toString()));
+  console.error('[initCourse_error]', e);
   }
 }
 
@@ -237,7 +304,7 @@ function toggleStream(){
   if(source){ source.close(); source=null; streamBtn.innerHTML='▶️ Stream'; statusEl.textContent='⏹️ Parado'; headerEl.textContent='⏸️ Stream pausado'; return; }
   streamBtn.innerHTML='⏹️ Parar'; statusEl.textContent='🔴 Streaming...'; headerEl.textContent='🤖 IA gerando conteúdo...'; appendText('🚀 Iniciando geração com IA...\n\n');
   source = new EventSource('/course/stream');
-  source.addEventListener('lesson', ev=>addLesson(JSON.parse(ev.data)));
+  source.addEventListener('lesson', ev=>{ const data = JSON.parse(ev.data); addLesson(data); narrateLesson(data); });
   source.addEventListener('log', ev=>{ const data=JSON.parse(ev.data); if(isTyping){ logBuffer.push('ℹ️ '+data.msg); } else { appendText('ℹ️ '+data.msg+'\n','citation'); } });
   source.addEventListener('heartbeat', ev => {
     try {
@@ -261,6 +328,7 @@ function toggleStream(){
       } else {
         renderInsertBlock(ins);
       }
+      if(!ins.pending && avatarPlayer) avatarPlayer.enqueueInsert(ins);
     } catch(e){ /* ignore */ }
   });
   source.addEventListener('classified', ev => {
@@ -327,7 +395,8 @@ function renderChat(){
   const modeLabel = a.placeholder ? 'AGENDADA' : (a.mode==='chat_now' ? 'IMEDIATA' : a.mode==='broadcast' ? 'BROADCAST' : a.mode);
     const meta = document.createElement('div'); meta.className='meta'; meta.textContent = modeLabel + ' • ' + new Date(a.ts).toLocaleTimeString();
     const body = document.createElement('div'); body.textContent = a.answer;
-    div.appendChild(meta); div.appendChild(body); answersDiv.appendChild(div);
+  div.appendChild(meta); div.appendChild(body); answersDiv.appendChild(div);
+  if(a.mode==='chat_now' && avatarPlayer){ avatarPlayer.enqueueAnswer(a); }
   if(a.__new){ setTimeout(()=>{ div.classList.remove('new'); delete a.__new; },2500); }
   }
   // Group pending questions by route for clarity
@@ -451,6 +520,11 @@ toggleAllBtn?.addEventListener('click', ()=>{
   for(const k of Object.keys(groupStates)) groupStates[k] = !anyOpen; applyGroupState();
 });
 applyGroupState();
+
+// (Removido bootstrap antigo: agora feito via AvatarController durante initCourse)
+
+avatarToggle?.addEventListener('click', ()=>{ avatarEnabled = !avatarEnabled; avatarToggle.textContent = avatarEnabled ? '🗣️' : '🙊'; avatarPlayer?.setMuted(!avatarEnabled); });
+avatarMute?.addEventListener('click', ()=>{ if(!avatarPlayer) return; avatarPlayer.setMuted(!avatarPlayer.muted); avatarMute.textContent = avatarPlayer.muted ? '🔈' : '🔇'; });
 
 // Elapsed timers update
 function updateElapsed(){

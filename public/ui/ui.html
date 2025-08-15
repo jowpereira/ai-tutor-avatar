@@ -9,6 +9,14 @@
 </header>
 <div class="container">
  <h2>📚 Geração de Curso em Tempo Real</h2>
+ <div id="avatarShell" class="avatar-shell" aria-label="Avatar Apresentador">
+     <video id="avatarVideo" autoplay muted playsinline></video>
+     <div id="avatarCaptions" aria-live="polite" aria-atomic="true"></div>
+     <div class="avatar-controls">
+         <button id="avatarToggle" title="Ativar/Desativar Locutor">🗣️</button>
+         <button id="avatarMute" title="Silenciar">🔇</button>
+     </div>
+ </div>
  <button id="followBtn" class="follow-btn" style="display:none">⬇️ Acompanhar</button>
  <div id="progressWrapper">
   <div id="progressBar"><div id="bar"></div></div>
@@ -78,5 +86,6 @@
     </div>
  </div>
 </div>
+<script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
 <script src="/ui/ui.js" type="module"></script>
 </body></html>

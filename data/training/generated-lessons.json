@@ -1,6 +1,25 @@
 {
   "todo": [
     {
+      "id": "t1",
+      "title": "Introdução a Machine Learning",
+      "description": "Fundamentos, tipos de aprendizado e pipeline básico",
+      "subtasks": [
+        {
+          "id": "t1s1",
+          "title": "Definições"
+        },
+        {
+          "id": "t1s2",
+          "title": "Aprendizado Supervisionado vs Não"
+        },
+        {
+          "id": "t1s3",
+          "title": "Pipeline ML"
+        }
+      ]
+    },
+    {
       "id": "t2",
       "title": "Fundamentos de Redes Neurais",
       "description": "Perceptron, camadas, ativação, loss e backprop",
@@ -177,14 +196,14 @@
       "id": "t1s1-sec",
       "topicId": "t1",
       "subtaskId": "t1s1",
-      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[1:t1d1]]. Os principais tipos são supervisionado, não supervisionado e por reforço [[2:t1d2]]. O pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy [[3:t1d3]].\nEm resumo, Machine Learning é um campo que se dedica a estudar algoritmos capazes de aprender padrões a partir de dados, com diferentes tipos de abordagens e um pipeline de etapas bem definido.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados, sendo dividido em tipos como supervisionado, não supervisionado e por reforço. O processo de Machine Learning envolve um pipeline que inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy.\nNo aprendizado supervisionado, os algoritmos são treinados com dados rotulados, enquanto no não supervisionado não há rótulos nos dados de treinamento. Já o aprendizado por reforço envolve um agente que interage com um ambiente e aprende com base em recompensas ou penalidades.\nO pipeline de Machine Learning começa com a coleta de dados, seguida pela limpeza e preparação desses dados. Depois, é feita a engenharia de features para extrair informações relevantes. Em seguida, os modelos são treinados, avaliados e, por fim, implantados para uso prático.\nEm resumo, Machine Learning é um campo que estuda algoritmos que aprendem padrões a partir de dados, com diferentes tipos de aprendizado e um pipeline que envolve desde a coleta até o deploy dos modelos.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": []
     },
     {
       "id": "t1s2-sec",
       "topicId": "t1",
       "subtaskId": "t1s2",
-      "content": "Aprendizado Supervisionado e Não Supervisionado são dois tipos de algoritmos de Machine Learning. No Supervisionado, o modelo é treinado com dados rotulados, enquanto no Não Supervisionado, o modelo é treinado com dados não rotulados.\nNo Aprendizado Supervisionado, o modelo aprende a partir de exemplos rotulados, ou seja, ele é fornecido com pares de entrada e saída esperada. Já no Aprendizado Não Supervisionado, o modelo precisa encontrar padrões nos dados sem a necessidade de rótulos.\nNo processo de Machine Learning, o pipeline inclui etapas como coleta de dados, limpeza, engenharia de features, treino do modelo, avaliação de desempenho e deploy do modelo em produção. Cada etapa é fundamental para o sucesso do projeto de Machine Learning.\nEm resumo, o Aprendizado Supervisionado e Não Supervisionado são abordagens distintas no campo de Machine Learning, cada uma com suas próprias características e aplicações. É importante entender as diferenças entre esses dois tipos de aprendizado para escolher a abordagem mais adequada para cada problema.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados. Os principais tipos de aprendizado são supervisionado, não supervisionado e por reforço. O pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy.\nNo aprendizado supervisionado, o modelo é treinado com dados rotulados, ou seja, o algoritmo aprende a partir de exemplos fornecidos. Já no aprendizado não supervisionado, o modelo é treinado com dados não rotulados, buscando identificar padrões e estruturas nos dados sem a necessidade de rótulos.\nO aprendizado supervisionado é mais comum em tarefas onde se deseja prever ou classificar algo com base em dados históricos. Por outro lado, o aprendizado não supervisionado é útil para descobrir insights e padrões ocultos nos dados, sem a necessidade de rótulos.\nEm resumo, o aprendizado supervisionado é utilizado quando se tem dados rotulados e deseja-se prever ou classificar algo, enquanto o aprendizado não supervisionado é empregado para descobrir padrões e insights em dados não rotulados. Ambos os tipos de aprendizado têm suas aplicações e benefícios, dependendo do contexto e dos objetivos do projeto de Machine Learning.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": [
         "[[ref:1:t1d1]]",
         "[[ref:2:t1d2]]",
@@ -195,63 +214,73 @@
       "id": "t1s3-sec",
       "topicId": "t1",
       "subtaskId": "t1s3",
-      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[1:t1d1]]. Os principais tipos são supervisionado, não supervisionado e por reforço [[2:t1d2]]. Um Pipeline de Machine Learning inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy [[3:t1d3]].\nPrimeiro, os dados são coletados e preparados para análise. Em seguida, é feita a limpeza dos dados, removendo outliers e preenchendo valores faltantes. Depois, ocorre o processo de feature engineering, onde as variáveis são transformadas para melhorar o desempenho do modelo.\nNo treino, o algoritmo é alimentado com os dados para aprender padrões e fazer previsões. Após o treino, o modelo é avaliado para verificar sua eficácia e ajustes são feitos, se necessário. Por fim, o modelo é implantado para uso em produção.\nEm resumo, um Pipeline de Machine Learning passa por etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy para desenvolver e implementar modelos preditivos.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Machine Learning (ML) é um campo que estuda algoritmos capazes de aprender padrões a partir de dados [[1:t1d1]]. Os principais tipos de ML são supervisionado, não supervisionado e por reforço [[2:t1d2]]. Um pipeline de ML inclui etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy [[3:t1d3]].\nPrimeiramente, na etapa de coleta, os dados são reunidos de diversas fontes. Em seguida, ocorre a limpeza dos dados, removendo ruídos e inconsistências. Depois, é feito o feature engineering, onde são criadas variáveis relevantes para o modelo. Posteriormente, o modelo é treinado com os dados disponíveis.\nPortanto, após o treinamento, o modelo é avaliado para verificar sua eficácia e possíveis melhorias. Por fim, o modelo é implantado em produção para uso real. Em resumo, um pipeline de ML envolve diversas etapas essenciais para o desenvolvimento e implementação de modelos de Machine Learning.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": [
         "[[ref:1:t1d1]]",
         "[[ref:2:t1d2]]",
         "[[ref:3:t1d3]]"
       ]
-    },
-    {
-      "id": "t2s1-sec",
-      "topicId": "t2",
-      "subtaskId": "t2s1",
-      "content": "O Perceptron é um tipo de rede neural composta por unidades conectadas com pesos ajustáveis. Essas unidades são organizadas em camadas, e a saída de uma unidade é determinada pela soma ponderada das entradas, seguida de uma função de ativação. As funções de ativação mais comuns são ReLU, Sigmoid e Tanh, que introduzem não-linearidades nas saídas das unidades [[ref:t2d2]].\nDurante o treinamento do Perceptron, o algoritmo de backpropagation é utilizado para calcular os gradientes dos pesos em relação a uma função de custo. Isso é feito através da regra da cadeia, permitindo a atualização dos pesos de forma a minimizar a função de custo e melhorar o desempenho da rede [[ref:t2d3]].\nEm resumo, o Perceptron é uma arquitetura simples de rede neural que utiliza pesos ajustáveis e funções de ativação para aprender a mapear entradas para saídas. O algoritmo de backpropagation é essencial para o treinamento do Perceptron, permitindo a atualização dos pesos com base nos gradientes calculados.\n\nReferências: [[ref:1:t2d1]] [[ref:2:t2d2]] [[ref:3:t2d3]]",
-      "citations": [
-        "[[ref:t2d2]]",
-        "[[ref:t2d3]]",
-        "[[ref:1:t2d1]]",
-        "[[ref:2:t2d2]]",
-        "[[ref:3:t2d3]]"
-      ]
     }
   ],
-  "currentTopicId": "t2",
+  "currentTopicId": "t1",
   "currentSubtaskId": null,
   "currentQuestionId": null,
   "questionsQueue": [
     {
-      "id": "q_mebulhv08754",
+      "id": "q_mecvpkge1b8e",
       "text": "oi",
-      "ts": 1755203082156,
+      "ts": 1755265417934,
       "from": "user",
       "route": "IGNORE",
       "needsRAG": false,
       "reason": "heuristic:score_-3|heuristic:score_-3|heuristic:score_-3"
+    },
+    {
+      "id": "q_mecvq1ub55cd",
+      "text": "\"Pode fazer um resumo dos principais pontos sobre Machine Learning?\"",
+      "ts": 1755265440467,
+      "from": "user",
+      "route": "END_TOPIC",
+      "needsRAG": false,
+      "reason": "Resumo solicitado"
+    },
+    {
+      "id": "q_mecvrbarfaf1",
+      "text": "\"Pode fazer um resumo dos principais modelos sobre Machine Learning?\"",
+      "ts": 1755265499379,
+      "from": "user",
+      "route": "END_TOPIC",
+      "needsRAG": false,
+      "reason": "Pede um resumo/conclusão sobre o tópico atual"
     }
   ],
-  "broadcastQueue": [],
+  "broadcastQueue": [
+    {
+      "id": "b_q_mecvq1ub55cd",
+      "questionId": "q_mecvq1ub55cd",
+      "text": "\"Pode fazer um resumo dos principais pontos sobre Machine Learning?\"",
+      "score": 1,
+      "needsRAG": false,
+      "reason": "Resumo solicitado",
+      "route": "END_TOPIC"
+    },
+    {
+      "id": "b_q_mecvrbarfaf1",
+      "questionId": "q_mecvrbarfaf1",
+      "text": "\"Pode fazer um resumo dos principais modelos sobre Machine Learning?\"",
+      "score": 1,
+      "needsRAG": false,
+      "reason": "Pede um resumo/conclusão sobre o tópico atual",
+      "route": "END_TOPIC"
+    }
+  ],
   "answers": [
     {
-      "id": "ans_q_mebulff3fa89",
-      "questionId": "q_mebulff3fa89",
-      "answer": "Qual é a importância do pipeline de Machine Learning no processo de desenvolvimento de modelos? O pipeline de Machine Learning é fundamental para garantir a qualidade e eficácia dos modelos desenvolvidos. Ele engloba etapas como coleta, limpeza, feature engineering, treino, avaliação e deploy, garantindo que os dados sejam processados de forma adequada e que o modelo final seja capaz de aprender p",
+      "id": "ans_q_mecvpsim0b6f",
+      "questionId": "q_mecvpsim0b6f",
+      "answer": "No aprendizado supervisionado, os algoritmos são treinados com dados rotulados, ou seja, o modelo recebe exemplos de entrada juntamente com as saídas desejadas, permitindo assim que ele aprenda a mapear as entradas para as saídas corretas. Já no aprendizado não supervisionado, os algoritmos são treinados com dados não rotulados, ou seja, o modelo precisa encontrar padrões e estruturas nos dados po",
       "mode": "chat_now",
-      "ts": 1755203080236
-    },
-    {
-      "id": "ans_q_mebulo806f2d",
-      "questionId": "q_mebulo806f2d",
-      "answer": "No aprendizado supervisionado, os algoritmos são treinados com dados rotulados, ou seja, com exemplos onde a resposta correta já é conhecida. Isso permite que o modelo aprenda a mapear entradas para saídas com base nos exemplos fornecidos durante o treinamento. Por outro lado, no aprendizado não supervisionado, os algoritmos são treinados com dados não rotulados, o que significa que o modelo preci",
-      "mode": "chat_now",
-      "ts": 1755203095210
-    },
-    {
-      "id": "ans_q_mebulrj15775",
-      "questionId": "q_mebulrj15775",
-      "answer": "No aprendizado supervisionado, os algoritmos são treinados com dados rotulados, ou seja, o modelo aprende a partir de exemplos em que a resposta correta já é conhecida. Já no aprendizado não supervisionado, os algoritmos são treinados com dados não rotulados, onde o objetivo é encontrar padrões e estruturas nos dados sem a necessidade de rótulos prévios [[ref:1:t1d2]]. Em projetos reais, a diferen",
-      "mode": "chat_now",
-      "ts": 1755203099187
+      "ts": 1755265433239
     }
   ],
   "logs": [
@@ -263,10 +292,10 @@
     {
       "node": "pick",
       "event": "node_telemetry",
-      "ms": 0,
+      "ms": 1,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "checkQuestions",
@@ -275,10 +304,10 @@
     {
       "node": "checkQuestions",
       "event": "node_telemetry",
-      "ms": 1,
+      "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "answerChatNow",
@@ -287,10 +316,10 @@
     {
       "node": "answerChatNow",
       "event": "node_telemetry",
-      "ms": 0,
+      "ms": 1,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "draftLesson",
@@ -301,8 +330,8 @@
       "event": "node_telemetry",
       "ms": 1,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "groundWithRag",
@@ -313,10 +342,10 @@
     {
       "node": "groundNode",
       "event": "node_telemetry",
-      "ms": 2641,
+      "ms": 3130,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "finalizeSection",
@@ -327,8 +356,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "processPauseAnswers",
@@ -339,8 +368,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "processEndTopicAnswers",
@@ -351,16 +380,16 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "checkDone",
       "event": "node_telemetry",
-      "ms": 1,
+      "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "pickSubtask",
@@ -372,8 +401,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "checkQuestions",
@@ -384,8 +413,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "answerChatNow",
@@ -396,8 +425,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "draftLesson",
@@ -408,8 +437,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "groundWithRag",
@@ -420,10 +449,10 @@
     {
       "node": "groundNode",
       "event": "node_telemetry",
-      "ms": 3158,
+      "ms": 2736,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "finalizeSection",
@@ -434,8 +463,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "processPauseAnswers",
@@ -446,8 +475,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "processEndTopicAnswers",
@@ -458,16 +487,16 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "checkDone",
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "pickSubtask",
@@ -479,8 +508,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "checkQuestions",
@@ -491,8 +520,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "answerChatNow",
@@ -503,8 +532,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "draftLesson",
@@ -515,8 +544,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "groundWithRag",
@@ -527,10 +556,10 @@
     {
       "node": "groundNode",
       "event": "node_telemetry",
-      "ms": 2386,
+      "ms": 2472,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "finalizeSection",
@@ -541,8 +570,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "processPauseAnswers",
@@ -553,8 +582,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "processEndTopicAnswers",
@@ -565,221 +594,42 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     },
     {
       "node": "checkDone",
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "pickSubtask",
-      "action": "topic_completed",
-      "topic": "t1"
-    },
-    {
-      "node": "pick",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "checkQuestions",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "answerChatNow",
-      "action": "skip_no_current"
-    },
-    {
-      "node": "answerChatNow",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "draftNode",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "groundNode",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "finalizeSection",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processPauseAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip_delegated_to_sse"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "checkDone",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t2",
-      "subtask": "t2s1"
-    },
-    {
-      "node": "pick",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "checkQuestions",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "answerChatNow",
-      "action": "skip_no_current"
-    },
-    {
-      "node": "answerChatNow",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t2s1"
-    },
-    {
-      "node": "draftNode",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t2",
-      "subtask": "t2s1"
-    },
-    {
-      "node": "groundNode",
-      "event": "node_telemetry",
-      "ms": 2133,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t2s1-sec"
-    },
-    {
-      "node": "finalizeSection",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processPauseAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip_delegated_to_sse"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
-    },
-    {
-      "node": "checkDone",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mebul3e7",
-      "traceId": "sess_mebul3e7_t0"
+      "sessionId": "sess_mecvpati",
+      "traceId": "sess_mecvpati_t0"
     }
   ],
   "done": false,
   "draft": "",
   "grounded": "",
-  "sessionId": "sess_mebul3e7",
-  "traceId": "sess_mebul3e7_t0"
+  "sessionId": "sess_mecvpati",
+  "traceId": "sess_mecvpati_t0",
+  "inserts": [
+    {
+      "id": "end_topic_block_pending_1755265500683",
+      "mode": "end_topic",
+      "text": "⏳ Coletando perguntas de fim de tópico (1):\n\n1. \"Pode fazer um resumo dos principais modelos sobre Machine Learning?\"",
+      "ts": 1755265500683,
+      "questionIds": [
+        "q_mecvrbarfaf1"
+      ],
+      "pending": true,
+      "version": 2
+    }
+  ],
+  "classifiedEvents": [
+    {
+      "id": "q_mecvrbarfaf1",
+      "route": "END_TOPIC",
+      "ts": 1755265500684,
+      "reason": "Pede um resumo/conclusão sobre o tópico atual"
+    }
+  ]
 }

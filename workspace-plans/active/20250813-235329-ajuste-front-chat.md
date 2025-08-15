@@ -1,6 +1,9 @@
 ---
 alias: ajuste-front-chat
 created: 2025-08-13T23:53:29Z
+done: true
+validated: true
+validation_date: 2025-08-14T20:47:00Z
 ---
 # Plano de Ação — Ajustar Front + Fluxos Perguntas Chat/Curso
 **Timestamp:** 2025-08-13T23:53:29Z  
@@ -109,6 +112,10 @@ created: 2025-08-13T23:53:29Z
 | 2025-08-14T15:14:31Z | ui_broadcast_separators | Inserts agora só no stream com separadores e placeholder no chat |
 | 2025-08-14T15:21:01Z | pause_consolidation | Implementado processPauseQuestions após cada lição |
 | 2025-08-14T15:24:39Z | pause_consolidation_loop | Consolidação PAUSE movida para antes de gerar nova lição |
+| 2025-08-14T20:47:00Z | plano_concluido | Pendências migradas para backlog documentação final |
+
+## ✅ Conclusão
+- Todas as subtarefas concluídas em 2025-08-14T20:47:00Z.
 
 
 ## 💾 Commit / CHANGELOG / TODO

@@ -5,6 +5,8 @@ import { buildGraph } from '../graph/app.js';
 import { buildLessonGraph } from '../graph/lessonGraph.js';
 import { logger, snapshotMetrics } from '../utils/observability.js';
 import { lessonManager, Topic } from '../services/lessonManager.js';
+import https from 'node:https';
+import { initAvatarSession } from '../services/avatarSession.js';
 // narrow helper para evitar any quando checamos método experimental
 interface LessonManagerWithFlush { flushEndTopicAnswers?: (limit?: number) => Promise<void> }
 // NodeNext exige extensão explícita em import local TS
@@ -53,6 +55,64 @@ export async function registerRoutes(app: FastifyInstance, graph: ReturnType<typ
   app.get('/metrics', async () => snapshotMetrics());
   app.get('/metrics/questions', async () => ({ metrics: lessonManager.getMetrics() }));
   app.get('/course/lessons', async () => ({ lessons: lessonManager.getState().lessons, done: lessonManager.getState().done }));
+
+  // Token efêmero para Avatar / Speech (se SPEECH_KEY configurado)
+  app.post('/avatar/token', async (_req, reply) => {
+    try {
+      const key = process.env.SPEECH_KEY; const region = process.env.SPEECH_REGION;
+      if(!key || !region) return reply.status(503).send({ error: 'avatar_unavailable' });
+      // Cache simples in-memory no escopo módulo (variáveis estáticas)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const g: any = globalThis as any;
+      const now = Date.now();
+      if(!g.__speechTokenCache) g.__speechTokenCache = { token: null, expiresAt: 0 };
+      if(g.__speechTokenCache.token && now < g.__speechTokenCache.expiresAt - 60000){
+        return reply.send({ token: g.__speechTokenCache.token, region, expiresAt: g.__speechTokenCache.expiresAt });
+      }
+      const options = {
+        hostname: `${region}.api.cognitive.microsoft.com`,
+        path: '/sts/v1.0/issuetoken',
+        method: 'POST',
+        headers: { 'Ocp-Apim-Subscription-Key': key, 'Content-Length': '0' }
+      };
+      const token: string = await new Promise((resolve, reject)=>{
+        const req = https.request(options, res => {
+          const chunks: Buffer[] = [];
+          res.on('data', d => chunks.push(d));
+          res.on('end', ()=>{
+            if(res.statusCode && res.statusCode>=200 && res.statusCode<300){ resolve(Buffer.concat(chunks).toString('utf-8')); }
+            else reject(new Error('token_request_failed_'+res.statusCode));
+          });
+        });
+        req.on('error', reject); req.end();
+      });
+      const expiresAt = Date.now() + 9*60*1000; // ~9min validade (token ~10min)
+      g.__speechTokenCache = { token, expiresAt };
+      logger.info({ event: 'avatar.token_issued', expiresAt });
+      reply.send({ token, region, expiresAt });
+    } catch(e){
+      logger.error({ event: 'avatar.token_error', error: (e as Error).message });
+      return reply.status(500).send({ error: 'token_error' });
+    }
+  });
+
+  // Inicia sessão avatar (retorna ICE server). Se sem credenciais -> 503.
+  app.post('/avatar/session/start', async (_req, reply) => {
+    try {
+      if(!process.env.SPEECH_KEY || !process.env.SPEECH_REGION){
+        return reply.status(503).send({ error: 'avatar_unavailable' });
+      }
+      const session = await initAvatarSession();
+      return reply.send({ ok: true, iceServer: session.iceServer, mode: session.mode });
+    } catch(e){
+      const err = e as Error;
+      if(err.message === 'speech_credentials_missing'){
+        return reply.status(503).send({ error: 'avatar_unavailable' });
+      }
+      logger.error({ event: 'avatar.session_start_error', error: err.message });
+      return reply.status(500).send({ error: 'session_error' });
+    }
+  });
 
   // Chat endpoints (fase 2 - MVP julgamento simples)
   app.post('/chat/send', async (request, reply) => {
@@ -285,6 +345,33 @@ export async function registerRoutes(app: FastifyInstance, graph: ReturnType<typ
       reply.type('application/javascript').send(js);
     } catch (e) {
       reply.code(404).type('text/plain').send('// ui.js não encontrado');
+    }
+  });
+  app.get('/ui/avatarPlayer.js', async (_req: FastifyRequest, reply: FastifyReply) => {
+    try {
+      const fp = path.resolve(process.cwd(), 'public', 'ui', 'avatarPlayer.js');
+      const js = await readFile(fp,'utf-8');
+      reply.type('application/javascript').send(js);
+    } catch (e) {
+      reply.code(404).type('text/plain').send('// avatarPlayer.js não encontrado');
+    }
+  });
+  app.get('/ui/avatarWebRTC.js', async (_req: FastifyRequest, reply: FastifyReply) => {
+    try {
+      const fp = path.resolve(process.cwd(), 'public', 'ui', 'avatarWebRTC.js');
+      const js = await readFile(fp,'utf-8');
+      reply.type('application/javascript').send(js);
+    } catch (e) {
+      reply.code(404).type('text/plain').send('// avatarWebRTC.js não encontrado');
+    }
+  });
+  app.get('/ui/avatarShared.js', async (_req: FastifyRequest, reply: FastifyReply) => {
+    try {
+      const fp = path.resolve(process.cwd(), 'public', 'ui', 'avatarShared.js');
+      const js = await readFile(fp,'utf-8');
+      reply.type('application/javascript').send(js);
+    } catch (e) {
+      reply.code(404).type('text/plain').send('// avatarShared.js não encontrado');
     }
   });
 
