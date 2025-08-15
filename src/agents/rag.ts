@@ -7,7 +7,12 @@ import { loadRAGStore, searchDocs, getTopicDocs, RAGDocument } from '../services
 let chatModel: ChatOpenAI | null = null;
 (() => {
   const env = loadEnv();
-  chatModel = new ChatOpenAI({ modelName: env.MODEL_NAME, temperature: 0.2 });
+  // gpt-5-nano não suporta temperature != 1 
+  if (env.MODEL_NAME === 'gpt-5-nano') {
+    chatModel = new ChatOpenAI({ modelName: env.MODEL_NAME });
+  } else {
+    chatModel = new ChatOpenAI({ modelName: env.MODEL_NAME, temperature: 0.2 });
+  }
   logger.info({ event: 'rag.llm_initialized', model: env.MODEL_NAME });
 })();
 
