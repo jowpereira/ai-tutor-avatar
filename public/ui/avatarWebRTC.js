@@ -5,7 +5,7 @@ import { buildSSML, segmentText } from '/ui/avatarShared.js';
 
 export class WebRTCStrategy {
   constructor(opts){
-    this.opts = opts || {}; // { fetchAuthToken, startSession, voice }
+    this.opts = opts || {}; // { fetchAuthToken, startSession, voice, privateEndpoint, useTcp }
     this.ready = false;
     this.queue = [];
     this.playing = false;
@@ -26,13 +26,49 @@ export class WebRTCStrategy {
       const session = await this.opts.startSession(); // { iceServer, mode }
       this.sessionMode = session.mode;
       // Montar SpeechConfig
-      this.speechConfig = globalThis.SpeechSDK.SpeechConfig.fromAuthorizationToken(auth.token, auth.region);
+      if(this.opts.privateEndpoint){
+        try {
+          this.speechConfig = globalThis.SpeechSDK.SpeechConfig.fromEndpoint(new URL(this.opts.privateEndpoint), auth.region);
+          this.speechConfig.authorizationToken = auth.token;
+        } catch(e){
+          console.warn('[avatar] privateEndpoint inválido, fallback region:', e);
+          this.speechConfig = globalThis.SpeechSDK.SpeechConfig.fromAuthorizationToken(auth.token, auth.region);
+        }
+      } else {
+        this.speechConfig = globalThis.SpeechSDK.SpeechConfig.fromAuthorizationToken(auth.token, auth.region);
+      }
       this.speechConfig.speechSynthesisVoiceName = this.opts.voice || 'pt-BR-AntonioNeural';
       // AvatarConfig mínimo (placeholder até vídeo real - não definindo formato custom)
       const videoFormat = new globalThis.SpeechSDK.AvatarVideoFormat();
       const avatarCfg = new globalThis.SpeechSDK.AvatarConfig(this.opts.character||'lisa', this.opts.style||'casual-sitting', videoFormat);
-      avatarCfg.remoteIceServers = [{ urls: session.iceServer.urls, username: session.iceServer.username, credential: session.iceServer.credential }];
-      this.peer = new RTCPeerConnection({ iceServers: [ { urls: session.iceServer.urls, username: session.iceServer.username, credential: session.iceServer.credential } ] });
+      // Transformar ICE URL se uso TCP solicitado (paridade com sample Azure: substitui :3478 -> :443?transport=tcp e força relay)
+      const transformIceUrl = (url, useTcp) => {
+        if(!useTcp) return url;
+        try {
+          // Apenas manipula porta padrão 3478 se presente; caso contrário adiciona 443
+            const qIndex = url.indexOf('?');
+            const base = qIndex >= 0 ? url.slice(0,qIndex) : url;
+            const restQuery = qIndex >= 0 ? url.slice(qIndex+1) : '';
+            let replaced = base.replace(':3478',':443');
+            if(replaced === base && !/:[0-9]+$/.test(base)){ // sem porta explícita
+              // inserir :443 antes de qualquer query (já removida)
+              const parts = replaced.split(/(?=\/)/); // rudimentar, mantém host
+              replaced = replaced + ':443';
+            }
+            // Reaplica query existente + transport=tcp
+            const hasTransport = /transport=tcp/i.test(url);
+            const queryParts = [];
+            if(restQuery) queryParts.push(restQuery);
+            if(!hasTransport) queryParts.push('transport=tcp');
+            return queryParts.length ? `${replaced}?${queryParts.join('&')}` : `${replaced}?transport=tcp`;
+        } catch{ return url; }
+      };
+      let iceUrl = transformIceUrl(session.iceServer.urls, !!this.opts.useTcp);
+      avatarCfg.remoteIceServers = [{ urls: iceUrl, username: session.iceServer.username, credential: session.iceServer.credential }];
+      this.peer = new RTCPeerConnection({ 
+        iceServers: [ { urls: iceUrl, username: session.iceServer.username, credential: session.iceServer.credential } ],
+        iceTransportPolicy: this.opts.useTcp ? 'relay' : 'all'
+      });
       // Vincular tracks de mídia remota ao <video> fornecido (se houver)
       const videoEl = this.opts.videoEl;
       if(videoEl){
