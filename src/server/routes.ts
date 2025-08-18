@@ -114,6 +114,17 @@ export async function registerRoutes(app: FastifyInstance, graph: ReturnType<typ
     }
   });
 
+  // Configuração pública (safe) para front-end inicializar Avatar
+  app.get('/avatar/config', async () => ({
+    mode: process.env.AVATAR_MODE || 'auto',
+  useTcp: (process.env.AVATAR_USE_TCP || 'true') !== 'false',
+  useTcpForWebRtc: (process.env.AVATAR_USE_TCP || 'true') !== 'false', // alias para samples Azure
+    privateEndpoint: process.env.SPEECH_PRIVATE_ENDPOINT || null,
+    character: process.env.AVATAR_CHARACTER || 'lisa',
+    style: process.env.AVATAR_STYLE || 'casual-sitting',
+    bgColor: process.env.AVATAR_BG_COLOR || null
+  }));
+
   // Chat endpoints (fase 2 - MVP julgamento simples)
   app.post('/chat/send', async (request, reply) => {
     try {

@@ -81,12 +81,12 @@ function finalizeIfReady(){
     if(completed < received) completed = received;
     if(completed < totalPlanned && received === totalPlanned) completed = totalPlanned;
     updateBar();
-    statusEl.textContent='🎉 Concluído';
+  statusEl.textContent='🎉 Concluído';
   streamBtn.disabled=true;
-    streamBtn.innerHTML='✅ Finalizado';
-    headerEl.textContent='🏁 Curso completo!';
-    appendText('\n🎊 Curso gerado com sucesso! Total: ' + received + ' lições.');
-    if(source){ source.close(); source=null; }
+  streamBtn.innerHTML='✅ Finalizado';
+  headerEl.textContent='🏁 Curso completo!';
+  appendText('\n🎊 Curso gerado com sucesso! Total: ' + received + ' lições.');
+  if(source){ source.close(); source=null; }
   }
 }
 
@@ -227,46 +227,45 @@ function narrateLesson(lesson){
 
 async function initCourse(){
   try {
-  startBtn.disabled=true; streamBtn.disabled=true;
-  if(nextLessonBtn) nextLessonBtn.disabled=true;
-    if(pulseBtn) pulseBtn.disabled=true;
+    startBtn.disabled=true; streamBtn.disabled=true; if(nextLessonBtn) nextLessonBtn.disabled=true; if(pulseBtn) pulseBtn.disabled=true;
     statusEl.textContent='🔄 Inicializando...'; headerEl.textContent='🎯 Preparando curso...'; streamDiv.innerHTML='';
     totalPlanned=0; received=0; completed=0; pendingDone=false; activeTyping=0; lessonQueue=[]; updateBar();
-  const res = await fetch('/events',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({type:'build_course'})});
+    const res = await fetch('/events',{method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({type:'build_course'})});
     if(!res.ok) throw new Error('Falha ao inicializar');
     const js = await res.json();
     totalPlanned = (js.result?.todo?.[0]?.subtasks?.length || 0) + (js.result?.todo?.slice(1)?.reduce((a,t)=>a+(t.subtasks?.length||0),0) || 0);
     statusEl.textContent='✅ Pronto para stream'; headerEl.textContent='📋 Curso carregado ('+totalPlanned+' lições)';
-  streamBtn.disabled=false; if(nextLessonBtn) nextLessonBtn.disabled=false; if(pulseBtn) pulseBtn.disabled=false; appendText('🎓 Sistema pronto! Total de '+totalPlanned+' lições.\n\n');
-    // Inicializa avatar controller (lazy apenas após build curso)
+    streamBtn.disabled=false; if(nextLessonBtn) nextLessonBtn.disabled=false; if(pulseBtn) pulseBtn.disabled=false; appendText('🎓 Sistema pronto! Total de '+totalPlanned+' lições.\n\n');
+    // Carrega config avatar
+    let avatarCfg = {};
+  try { const cfgRes = await fetch('/avatar/config'); if(cfgRes.ok) avatarCfg = await cfgRes.json(); } catch(_){ /* ignore */ }
+    window.AVATAR_CONFIG = avatarCfg; // debug
     try {
       avatarController = new AvatarController({
-        mode: (window.AVATAR_MODE || 'auto'),
-        createTTS: async () => { 
-          const p = await createAvatar(); 
-          avatarPlayer = p; 
-          avatarReady = true; 
-          // Bind TTS events to captions
+        mode: (window.AVATAR_MODE || avatarCfg.mode || 'auto'),
+        createTTS: async () => {
+      const p = await createAvatar(); // avatarCfg could later tune voice
+          avatarPlayer = p; avatarReady = true;
           p.on('playing', (ev) => { 
             if(avatarCaptionsEl && ev.chunkId) {
-              // Extract text from current queue item for basic caption display
               const currentText = p.queue[0]?.text || 'Reproduzindo áudio...';
               avatarCaptionsEl.textContent = currentText.slice(0, 80) + (currentText.length > 80 ? '...' : '');
             }
           });
-          p.on('chunkComplete', () => { 
-            if(avatarCaptionsEl) avatarCaptionsEl.textContent = ''; 
-          });
-          return p; 
+            p.on('chunkComplete', () => { if(avatarCaptionsEl) avatarCaptionsEl.textContent = ''; });
+          return p;
         },
         createWebRTC: async () => {
           const strat = new WebRTCStrategy({
             fetchAuthToken: async () => { const r = await fetch('/avatar/token',{method:'POST'}); if(!r.ok) throw new Error('token_fail'); return await r.json(); },
             startSession: async () => { const r = await fetch('/avatar/session/start',{method:'POST'}); if(!r.ok) throw new Error('session_fail'); return await r.json(); },
             voice: 'pt-BR-AntonioNeural',
-            character: (window.AVATAR_CHARACTER||'lisa'),
-            style: (window.AVATAR_STYLE||'casual-sitting'),
-            videoEl: avatarVideoEl
+            privateEndpoint: avatarCfg.privateEndpoint,
+            useTcp: avatarCfg.useTcpForWebRtc ?? avatarCfg.useTcp,
+            character: avatarCfg.character || (window.AVATAR_CHARACTER||'lisa'),
+            style: avatarCfg.style || (window.AVATAR_STYLE||'casual-sitting'),
+            videoEl: avatarVideoEl,
+            minAnswerChars: 160
           });
           strat.on('ready',()=>{ avatarPlayer = strat; avatarReady = true; });
           strat.on('caption', ev => { if(avatarCaptionsEl){ avatarCaptionsEl.textContent = ev.text; } });
@@ -277,25 +276,21 @@ async function initCourse(){
       });
       const modeInfo = await avatarController.init();
       console.debug('[avatar-controller] mode', modeInfo);
-      
-      // Always show avatar container after successful init (any mode)
-      if(avatarShell){ 
-        avatarShell.style.display='flex'; 
-        document.body.classList.add('with-avatar'); 
-        console.debug('[avatar] container visible, mode:', modeInfo.mode);
-      }
-    } catch(e){ 
-      console.warn('[avatar-controller-init-fail]', e); 
-      // Even if avatar fails, show empty container for consistent UI
-      if(avatarShell){ 
-        avatarShell.style.display='flex'; 
-        document.body.classList.add('with-avatar'); 
-      }
+      if(avatarShell){ avatarShell.style.display='flex'; document.body.classList.add('with-avatar'); }
+    } catch(e){
+      console.warn('[avatar-controller-init-fail]', e);
+      if(avatarShell){ avatarShell.style.display='flex'; document.body.classList.add('with-avatar'); }
     }
+    // Helper simples para enviar texto manual ao avatar
+    window.avatarSpeak = (text) => {
+      if(!text || !avatarPlayer) return false;
+      if(avatarPlayer.enqueueText) avatarPlayer.enqueueText('manual:'+Date.now(), text); else if(avatarPlayer.enqueueLesson){ avatarPlayer.enqueueText('manual:'+Date.now(), text); }
+      return true;
+    };
   } catch(e){
     statusEl.textContent='❌ Erro ao iniciar'; headerEl.textContent='⚠️ Falha na preparação'; startBtn.disabled=false;
     appendText('\n❌ '+(e.message||e.toString()));
-  console.error('[initCourse_error]', e);
+    console.error('[initCourse_error]', e);
   }
 }
 
