@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Avatar Debug Sample</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./sample.css" />
+  <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+  <script defer src="./sample.js"></script>
+</head>
+<body>
+  <h1>Avatar Debug Sample (Adaptado)</h1>
+  <section id="config">
+    <h2>Config Azure</h2>
+    <label>Region: <input id="region" value="eastus" /></label>
+    <label>API Key: <input id="APIKey" type="password" /></label>
+    <label><input type="checkbox" id="enablePrivateEndpoint" /> Private Endpoint</label>
+    <div id="privateEndpointBox" hidden>
+      <label>Private Endpoint: <input id="privateEndpoint" placeholder="https://{nome}.cognitiveservices.azure.com/" size="60" /></label>
+    </div>
+    <label>Voice: <input id="ttsVoice" value="pt-BR-AntonioNeural" /></label>
+    <label>Character: <input id="talkingAvatarCharacter" value="lisa" /></label>
+    <label>Style: <input id="talkingAvatarStyle" value="casual-sitting" /></label>
+    <label>Background Color: <input id="backgroundColor" value="#FFFFFFFF" /></label>
+    <label>Background Image URL: <input id="backgroundImageUrl" value="" size="60" /></label>
+    <label><input type="checkbox" id="showSubtitles" checked /> Subtitles</label>
+    <label><input type="checkbox" id="tcpMode" checked /> Forçar TCP (AVATAR_USE_TCP)</label>
+  </section>
+  <section>
+    <h2>Controle</h2>
+    <textarea id="spokenText" rows="2" style="width:100%;">Olá, mundo avatar!</textarea><br />
+    <button id="startSession">Start Session</button>
+    <button id="speak" disabled>Speak</button>
+    <button id="stopSpeaking" disabled>Stop Speaking</button>
+    <button id="stopSession" disabled>Stop Session</button>
+  </section>
+  <section>
+    <h2>Vídeo</h2>
+    <div id="videoWrapper" style="position:relative; max-width:720px;">
+      <div id="remoteVideo"></div>
+      <div id="subtitles" style="position:absolute; bottom:4%; width:100%; text-align:center; font-size:22px; color:white; text-shadow:0 0 4px #000;"></div>
+    </div>
+  </section>
+  <section>
+    <h2>Logs</h2>
+    <div id="logging" class="log"></div>
+  </section>
+</body>
+</html>

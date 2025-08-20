@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; margin: 1rem; }
+section { margin-bottom: 1.5rem; }
+#videoWrapper { position: relative; max-width: 720px; }
+#subtitles { position:absolute; bottom:4%; width:100%; text-align:center; font-size:22px; color:white; text-shadow:0 0 4px #000; }
+#logging { background:#111; color:#0f0; font-family: monospace; padding:0.5rem; max-height:200px; overflow-y:auto; }
+label { display:block; margin:0.25rem 0; }
+textarea { width:100%; }
+button { margin:0.25rem 0.4rem 0.25rem 0; }
