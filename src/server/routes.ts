@@ -122,7 +122,13 @@ export async function registerRoutes(app: FastifyInstance, graph: ReturnType<typ
     privateEndpoint: process.env.SPEECH_PRIVATE_ENDPOINT || null,
     character: process.env.AVATAR_CHARACTER || 'lisa',
     style: process.env.AVATAR_STYLE || 'casual-sitting',
-    bgColor: process.env.AVATAR_BG_COLOR || null
+  bgColor: process.env.AVATAR_BG_COLOR || null,
+  transparentBackground: (process.env.AVATAR_TRANSPARENT_BG||'false') === 'true',
+  videoCrop: (process.env.AVATAR_VIDEO_CROP||'false') === 'true',
+  backgroundImage: process.env.AVATAR_BACKGROUND_IMAGE || null,
+  customized: (process.env.AVATAR_CUSTOMIZED||'false') === 'true',
+  useBuiltInVoice: (process.env.AVATAR_USE_BUILTIN_VOICE||'false') === 'true',
+  showSubtitles: (process.env.AVATAR_SHOW_SUBTITLES||'true') !== 'false'
   }));
 
   // Chat endpoints (fase 2 - MVP julgamento simples)

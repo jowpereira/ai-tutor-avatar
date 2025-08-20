@@ -153,3 +153,4 @@ Observação: Âncoras exatas podem variar conforme ajustes futuros no arquivo d
 | 2025-08-13 | Implementar 5 Ações Perguntas Avatar | CONCLUÍDO | ✅ Auto-processamento LLM + heurística funcionando! |
 | 2025-08-14 | Classificador Chat: 5 Ações | CONCLUÍDO | Placeholder incremental END_TOPIC + flush correto |
 | 2025-08-14 | Integração Azure Avatar | CONCLUÍDO | Documento de design aprovado (fase A) |
+| 2025-08-18 | Gap Analysis Avatar | PENDENTE | Plano ativo 20250818-171919-gap-avatar |

@@ -14,6 +14,7 @@ const EnvSchema = z.object({
   AVATAR_CHARACTER: z.string().min(1).default('lisa').optional(),
   AVATAR_STYLE: z.string().min(1).default('casual-sitting').optional(),
   AVATAR_BG_COLOR: z.string().regex(/^#?[0-9A-Fa-f]{6,8}$/,'AVATAR_BG_COLOR inválido').optional(),
+  AVATAR_USE_TCP: z.string().transform(v => v !== 'false').optional(),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

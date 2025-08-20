@@ -21,6 +21,7 @@ let streamingLessonId = null;
 const avatarShell = document.getElementById('avatarShell');
 const avatarToggle = document.getElementById('avatarToggle');
 const avatarMute = document.getElementById('avatarMute');
+const avatarCancel = document.getElementById('avatarCancel');
 const avatarVideoEl = document.getElementById('avatarVideo');
 const avatarCaptionsEl = document.getElementById('avatarCaptions');
 // (modo token removido)
@@ -294,11 +295,21 @@ async function initCourse(){
             style: avatarCfg.style || (window.AVATAR_STYLE||'casual-sitting'),
             videoEl: avatarVideoEl,
             minAnswerChars: 160
+            ,transparentBackground: avatarCfg.transparentBackground
+            ,videoCrop: avatarCfg.videoCrop
+            ,backgroundColor: avatarCfg.bgColor
+            ,backgroundImage: avatarCfg.backgroundImage
+            ,customized: avatarCfg.customized
+            ,useBuiltInVoice: avatarCfg.useBuiltInVoice
           });
           strat.on('ready',()=>{ avatarPlayer = strat; avatarReady = true; });
           strat.on('caption', ev => { if(avatarCaptionsEl){ avatarCaptionsEl.textContent = ev.text; } });
           strat.on('error',(e)=>{ console.warn('[avatar-webrtc-error]', e); });
           await strat.init();
+          if(avatarCfg.transparentBackground){
+            const chroma = document.getElementById('avatarChromaCanvas');
+            if(chroma){ chroma.style.display='block'; avatarVideoEl.style.display='none'; }
+          }
           return strat;
         }
       });
@@ -548,6 +559,11 @@ applyGroupState();
 
 avatarToggle?.addEventListener('click', ()=>{ avatarEnabled = !avatarEnabled; avatarToggle.textContent = avatarEnabled ? '🗣️' : '🙊'; avatarPlayer?.setMuted(!avatarEnabled); });
 avatarMute?.addEventListener('click', ()=>{ if(!avatarPlayer) return; avatarPlayer.setMuted(!avatarPlayer.muted); avatarMute.textContent = avatarPlayer.muted ? '🔈' : '🔇'; });
+avatarCancel?.addEventListener('click', ()=>{
+  if(!avatarPlayer) return;
+  if(avatarPlayer.cancelCurrent){ avatarPlayer.cancelCurrent(); }
+  else if(avatarPlayer.stop){ avatarPlayer.stop(); }
+});
 
 // Elapsed timers update
 function updateElapsed(){

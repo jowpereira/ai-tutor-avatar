@@ -196,89 +196,16 @@
       "id": "t1s1-sec",
       "topicId": "t1",
       "subtaskId": "t1s1",
-      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados[[ref:1:t1d1]]. Em seguida, os principais tipos são supervisionado, não supervisionado e por reforço[[ref:2:t1d2]].\nDepois, o pipeline de ML envolve coleta, limpeza, feature engineering, treino, avaliação e deploy[[ref:3:t1d3]]. Portanto, compreender cada etapa facilita a implementação prática e segura de modelos.\nEm resumo, Machine Learning conecta dados a decisões por meio de modelos que aprendem com exemplos. Os três tipos principais dão caminhos diferentes para treinar e aplicar esses modelos. Finalmente, o pipeline descreve etapas desde a coleta até a implantação, orientando decisões.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
+      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[ref:1:t1d1]]. Essa definição orienta o estudo de como computadores extraem informações úteis sem instrução explícita [[ref:1:t1d1]].\nEntre os principais tipos estão o supervisionado, o não supervisionado e o por reforço [[ref:2:t1d2]].\nO pipeline típico de ML inclui coleta, limpeza, engenharia de features, treino, avaliação e deploy [[ref:3:t1d3]].\nPrimeiro, ML utiliza dados para identificar padrões sem instrução humana detalhada prévia [[ref:1:t1d1]]. Em seguida, ocorre o treino de modelos para capturar esses padrões de forma eficaz [[ref:1:t1d1]]. Depois vem a avaliação, que mede desempenho e generalização em conjunto de teste [[ref:3:t1d3]]. Portanto, por fim, o modelo é colocado em produção para uso real [[ref:3:t1d3]]. Por fim, a manutenção do sistema ajusta-se conforme novos dados chegam, mantendo a performance e confiabilidade [[ref:3:t1d3]].\nEm resumo, na prática, use dados de qualidade, escolha o tipo adequado de aprendizado e siga o pipeline para entregar resultados confiáveis.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
       "citations": []
-    },
-    {
-      "id": "t1s2-sec",
-      "topicId": "t1",
-      "subtaskId": "t1s2",
-      "content": "Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[ref:1:t1d1]].\nPrimeiro, é comum dividir os tipos: supervisionado, não supervisionado e por reforço [[ref:2:t1d2]].\nEm seguida, o pipeline de aprendizado envolve coleta, limpeza, engenharia de features, treino, avaliação e deploy [[ref:3:t1d3]].\nDepois, o modelo é avaliado para medir se atende aos objetivos de negócio e segurança.\nPortanto, o aprendizado supervisionado usa dados com rótulos para orientar o aprendizado; o não supervisionado encontra padrões sem rótulos [[ref:2:t1d2]].\nPor fim, a escolha entre eles depende dos dados disponíveis, dos objetivos e dos custos de rotulagem.\nEm resumo, escolha supervisionado quando houver dados rotulados suficientes para treinar modelos confiáveis [[ref:2:t1d2]].\nPara dados sem rótulos ou estruturas subjacentes, o não supervisionado pode revelar padrões úteis [[ref:2:t1d2]].\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
-      "citations": [
-        "[[ref:1:t1d1]]",
-        "[[ref:2:t1d2]]",
-        "[[ref:3:t1d3]]"
-      ]
-    },
-    {
-      "id": "t1s3-sec",
-      "topicId": "t1",
-      "subtaskId": "t1s3",
-      "content": "Primeiro, a Machine Learning é o campo que estuda algoritmos que aprendem padrões a partir de dados [[ref:1:t1d1]]. Em seguida, existem três grandes tipos: supervisionado, não supervisionado e por reforço [[ref:2:t1d2]]. Portanto, o pipeline de ML inclui coleta, limpeza, feature engineering, treino, avaliação e deploy [[ref:3:t1d3]].\nEm resumo, entenda o problema, selecione o tipo de aprendizado adequado e defina métricas. Depois, implemente o pipeline com coleta, limpeza, engenharia de características, treino e avaliação.\n\nReferências: [[ref:1:t1d1]] [[ref:2:t1d2]] [[ref:3:t1d3]]",
-      "citations": [
-        "[[ref:1:t1d1]]",
-        "[[ref:2:t1d2]]",
-        "[[ref:3:t1d3]]"
-      ]
     }
   ],
   "currentTopicId": "t1",
   "currentSubtaskId": null,
   "currentQuestionId": null,
-  "questionsQueue": [
-    {
-      "id": "q_mecxhowwe7d3",
-      "text": "oi",
-      "ts": 1755268409696,
-      "from": "user",
-      "route": "IGNORE",
-      "needsRAG": false,
-      "reason": "heuristic:score_-3|heuristic:score_-3|heuristic:score_-3"
-    },
-    {
-      "id": "q_mecxhumwbea4",
-      "text": "\"Pode fazer um resumo dos principais pontos sobre Machine Learning?\"",
-      "ts": 1755268417112,
-      "from": "user",
-      "route": "END_TOPIC",
-      "needsRAG": false,
-      "reason": "Resumo conceitual solicitado sobre o tópico atual (Machine Learning)."
-    }
-  ],
-  "broadcastQueue": [
-    {
-      "id": "b_q_mecxhumwbea4",
-      "questionId": "q_mecxhumwbea4",
-      "text": "\"Pode fazer um resumo dos principais pontos sobre Machine Learning?\"",
-      "score": 1,
-      "needsRAG": false,
-      "reason": "Resumo conceitual solicitado sobre o tópico atual (Machine Learning).",
-      "route": "END_TOPIC"
-    }
-  ],
-  "answers": [
-    {
-      "id": "ans_q_mecxi81ve369",
-      "questionId": "q_mecxi81ve369",
-      "answer": "Diferença prática entre aprendizado supervisionado e não supervisionado em projetos reais:\n\n- O que são, na prática:\n  - Supervisionado: treina com dados rotulados (saída/classificação ou valor/regressão) para prever a saída de novas amostras. [[ref:1:t1d2]] [[ref:2:t1d1]]\n  - Não supervisionado: trabalha com dados sem rótulos para descobrir estruturas, clusters ou padrões subjacentes. [[ref:1:t1d",
-      "mode": "chat_now",
-      "ts": 1755268467651
-    },
-    {
-      "id": "ans_q_mecxify9fcaf",
-      "questionId": "q_mecxify9fcaf",
-      "answer": "Diferença prática entre aprendizado supervisionado e não supervisionado em projetos reais:\n\n- Dados necessários e custo: supervisionado requer dados com rótulos (targets) para treinar e avaliar; não supervisionado usa dados sem rótulos, reduzindo a necessidade de etiquetagem. [[ref:1:t1d2]] [[ref:2:t1d1]]\n\n- Objetivo e saída: supervisionado visa prever uma saída para cada entrada (classificação/re",
-      "mode": "chat_now",
-      "ts": 1755268475278
-    },
-    {
-      "id": "ans_q_mecxify9fcaf",
-      "questionId": "q_mecxify9fcaf",
-      "answer": "Diferença prática entre supervisionado e não supervisionado em projetos reais:\n\n- Aprendizado supervisionado: usa dados com rótulos para treinar modelos que prevêem o rótulo/valor de novas amostras (ex.: classe, preço). Precisa de rótulos durante o treino. Exemplos: classificação e regressão.",
-      "mode": "chat_now",
-      "ts": 1755268486404
-    }
-  ],
+  "questionsQueue": [],
+  "broadcastQueue": [],
+  "answers": [],
   "logs": [
     {
       "node": "pickSubtask",
@@ -288,10 +215,10 @@
     {
       "node": "pick",
       "event": "node_telemetry",
-      "ms": 1,
+      "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "checkQuestions",
@@ -302,8 +229,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "answerChatNow",
@@ -314,8 +241,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "draftLesson",
@@ -326,8 +253,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "groundWithRag",
@@ -338,10 +265,10 @@
     {
       "node": "groundNode",
       "event": "node_telemetry",
-      "ms": 31449,
+      "ms": 33671,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "finalizeSection",
@@ -350,10 +277,10 @@
     {
       "node": "finalizeSection",
       "event": "node_telemetry",
-      "ms": 0,
+      "ms": 1,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "processPauseAnswers",
@@ -364,8 +291,8 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "processEndTopicAnswers",
@@ -376,235 +303,21 @@
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     },
     {
       "node": "checkDone",
       "event": "node_telemetry",
       "ms": 0,
       "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t1",
-      "subtask": "t1s2"
-    },
-    {
-      "node": "pick",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "checkQuestions",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "answerChatNow",
-      "action": "skip_no_current"
-    },
-    {
-      "node": "answerChatNow",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t1s2"
-    },
-    {
-      "node": "draftNode",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t1",
-      "subtask": "t1s2"
-    },
-    {
-      "node": "groundNode",
-      "event": "node_telemetry",
-      "ms": 40573,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t1s2-sec"
-    },
-    {
-      "node": "finalizeSection",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processPauseAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip_delegated_to_sse"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "checkDone",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "pickSubtask",
-      "topic": "t1",
-      "subtask": "t1s3"
-    },
-    {
-      "node": "pick",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "checkQuestions",
-      "action": "none"
-    },
-    {
-      "node": "checkQuestions",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "answerChatNow",
-      "action": "skip_no_current"
-    },
-    {
-      "node": "answerChatNow",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "draftLesson",
-      "subtask": "t1s3"
-    },
-    {
-      "node": "draftNode",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "groundWithRag",
-      "action": "llm_generate",
-      "topic": "t1",
-      "subtask": "t1s3"
-    },
-    {
-      "node": "groundNode",
-      "event": "node_telemetry",
-      "ms": 26885,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "finalizeSection",
-      "lesson": "t1s3-sec"
-    },
-    {
-      "node": "finalizeSection",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "processPauseAnswers",
-      "action": "skip"
-    },
-    {
-      "node": "processPauseAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "action": "skip_delegated_to_sse"
-    },
-    {
-      "node": "processEndTopicAnswers",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
-    },
-    {
-      "node": "checkDone",
-      "event": "node_telemetry",
-      "ms": 0,
-      "currentQuestionId": null,
-      "sessionId": "sess_mecxgsy1",
-      "traceId": "sess_mecxgsy1_t0"
+      "sessionId": "sess_mek2jls4",
+      "traceId": "sess_mek2jls4_t0"
     }
   ],
   "done": false,
   "draft": "",
   "grounded": "",
-  "sessionId": "sess_mecxgsy1",
-  "traceId": "sess_mecxgsy1_t0"
+  "sessionId": "sess_mek2jls4",
+  "traceId": "sess_mek2jls4_t0"
 }

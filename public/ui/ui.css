@@ -87,6 +87,8 @@ h2{margin:0 0 8px;font-size:18px;font-weight:600}
 .avatar-controls{display:flex;flex-direction:column;gap:4px;flex-shrink:0}
 .avatar-controls button{background:#1e293b;border:1px solid #334155;padding:6px 8px;font-size:11px;border-radius:4px}
 .avatar-controls button:hover{background:#334155}
+.avatar-controls #avatarCancel{background:#7e22ce;border-color:#6d28d9}
+.avatar-controls #avatarCancel:hover{background:#5b21b6}
 /* Estado ativo quando vídeo pronto */
 body.with-avatar #avatarShell{display:flex !important}
 body.with-avatar #layout{margin-top:2px}
@@ -112,3 +114,5 @@ body.with-avatar #avatarVideo:not([src]):not([srcObject]):before{
   #avatarCaptions{margin:4px 0;text-align:center}
   .avatar-controls{flex-direction:row;gap:6px}
 }
+.avatar-chroma{display:none;max-width:200px;height:120px;background:transparent}
+#followBtn{display:none}

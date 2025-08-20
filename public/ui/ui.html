@@ -10,11 +10,13 @@
 <div class="container">
  <h2>📚 Geração de Curso em Tempo Real</h2>
  <div id="avatarShell" class="avatar-shell" aria-label="Avatar Apresentador">
-     <video id="avatarVideo" autoplay muted playsinline></video>
+    <video id="avatarVideo" autoplay muted playsinline></video>
+    <canvas id="avatarChromaCanvas" class="avatar-chroma"></canvas>
      <div id="avatarCaptions" aria-live="polite" aria-atomic="true"></div>
      <div class="avatar-controls">
          <button id="avatarToggle" title="Ativar/Desativar Locutor">🗣️</button>
          <button id="avatarMute" title="Silenciar">🔇</button>
+         <button id="avatarCancel" title="Cancelar fala atual">⏹️</button>
      </div>
  </div>
  <button id="followBtn" class="follow-btn" style="display:none">⬇️ Acompanhar</button>
