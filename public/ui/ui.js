@@ -14,6 +14,10 @@ let pendingInsertQueue = [];
 // Rastreamento de placeholders (ex: end_topic pendente) para atualizações incrementais
 let placeholderMap = { end_topic: null };
 let avatarPlayer = null; let avatarEnabled = true; let avatarReady = false; let avatarController = null;
+// Buffer de fala incremental (streaming para avatar WebRTC enquanto "digitamos")
+let currentSpeakBuffer = '';
+let speakChunkIdx = 0;
+let streamingLessonId = null;
 const avatarShell = document.getElementById('avatarShell');
 const avatarToggle = document.getElementById('avatarToggle');
 const avatarMute = document.getElementById('avatarMute');
@@ -95,15 +99,37 @@ function typeContentSequential(content, references, onDone){
   if(nextLessonBtn) nextLessonBtn.disabled=true;
   const chars = [...content];
   let idx = 0;
+  // reset buffers para nova lição (streaming incremental)
+  currentSpeakBuffer=''; speakChunkIdx=0;
   const interval = setInterval(()=>{
     if(idx < chars.length){
       const ch = chars[idx];
       if(ch === '\n') streamDiv.appendChild(document.createElement('br')); else {
         const s = document.createElement('span'); s.textContent = ch; streamDiv.appendChild(s);
       }
+      // Acumular para avatar streaming (somente modo webrtc)
+      if(avatarReady && avatarController && avatarController.activeMode === 'webrtc'){
+        if(!streamingLessonId) streamingLessonId = headerEl.textContent?.replace('✍️ Gerando: ','') || ('L'+Date.now());
+        currentSpeakBuffer += ch;
+        // Condições de flush: fim de sentença (.!?), quebra de linha, ou buffer muito longo
+        const isSentenceEnd = /[.!?]$/.test(currentSpeakBuffer.trim());
+        const overLen = currentSpeakBuffer.length > 200; // flush preventivo
+        if(isSentenceEnd || overLen){
+          const textToSpeak = currentSpeakBuffer.trim();
+          if(textToSpeak.length > 8 && avatarPlayer && avatarPlayer.enqueueText){
+            try { avatarPlayer.enqueueText('live:'+streamingLessonId+':'+(speakChunkIdx++), textToSpeak); } catch{ /* noop */ }
+          }
+          currentSpeakBuffer='';
+        }
+      }
       idx++; scrollToBottom();
     } else {
       clearInterval(interval);
+      // Flush final do que restar no buffer
+      if(currentSpeakBuffer.trim().length>8 && avatarReady && avatarController?.activeMode==='webrtc' && avatarPlayer?.enqueueText){
+        try { avatarPlayer.enqueueText('live:'+ (streamingLessonId||('L'+Date.now())) +':'+(speakChunkIdx++), currentSpeakBuffer.trim()); } catch{ /* ignore */ }
+      }
+      currentSpeakBuffer=''; streamingLessonId=null;
       if(references && references.length){
         const lower = content.toLowerCase();
         if(!lower.includes('referências:')){
@@ -222,7 +248,9 @@ function processQueue(){
 function addLesson(lesson){ received++; lessonQueue.push({ lesson }); processQueue(); }
 function narrateLesson(lesson){
   if(!avatarEnabled || !avatarPlayer || !avatarReady) return;
-  avatarPlayer.enqueueLesson(lesson);
+  // Se estamos em modo WebRTC usamos streaming incremental durante a digitação; evitar duplicar conteúdo completo
+  if(avatarController?.activeMode === 'webrtc') return;
+  avatarPlayer.enqueueLesson(lesson); // TTS fallback ou modo tts
 }
 
 async function initCourse(){
